@@ -60,9 +60,6 @@ public class ArrowEvent : MonoBehaviour {
     #endregion
 
     public void Update() {
-
-        Debug.Log(killflag);
-
         if (killflag == true) {
             Kill();
         }

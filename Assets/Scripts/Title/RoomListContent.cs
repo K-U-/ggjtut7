@@ -10,6 +10,7 @@ public class RoomListContent : MonoBehaviour {
     {
         if (onClick != null)
         {
+            GameManager.GetInstance().roomName = roomId;
             onClick(roomId);
         }
     }
