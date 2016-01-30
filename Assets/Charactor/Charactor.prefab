@@ -495,28 +495,46 @@ MonoBehaviour:
   - {fileID: 21300006, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
   - {fileID: 21300018, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
   - {fileID: 21300034, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
+  - {fileID: 21300046, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
+  - {fileID: 21300048, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
+  - {fileID: 21300050, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
   Eye:
   - {fileID: 21300002, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
   - {fileID: 21300016, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
+  - {fileID: 21300042, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
+  - {fileID: 21300044, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
   Body:
-  - {fileID: 21300008, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
+  - {fileID: 21300056, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
   - {fileID: 21300020, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
   - {fileID: 21300036, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
+  - {fileID: 21300052, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
+  - {fileID: 21300054, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
   Uarm:
   - {fileID: 21300012, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
   - {fileID: 21300024, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
+  - {fileID: 21300064, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
+  - {fileID: 21300066, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
+  - {fileID: 21300068, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
   Barm:
   - {fileID: 21300014, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
   - {fileID: 21300026, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
   - {fileID: 21300040, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
+  - {fileID: 21300070, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
+  - {fileID: 21300072, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
   Leg:
   - {fileID: 21300010, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
   - {fileID: 21300022, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
   - {fileID: 21300038, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
+  - {fileID: 21300058, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
+  - {fileID: 21300060, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
+  - {fileID: 21300062, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
   Wepon:
   - {fileID: 21300028, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
   - {fileID: 21300030, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
   - {fileID: 21300028, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
+  - {fileID: 21300074, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
+  - {fileID: 21300076, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
+  - {fileID: 21300078, guid: 3c032de7072da3843859737d6b1aa288, type: 3}
   HeadBase: {fileID: 21211058}
   EyeBase: {fileID: 21249800}
   BodyBase: {fileID: 21255624}
