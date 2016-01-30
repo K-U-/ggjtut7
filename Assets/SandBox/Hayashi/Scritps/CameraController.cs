@@ -25,5 +25,8 @@ public class CameraController : MonoBehaviour {
 		// 十字キーのアクションがあった時に一緒に動くようにしてもらうとか？
 		transform.position = target.position - offset;
 
+		if (Input.GetKeyDown(KeyCode.A)) {
+			AudioController.PlaySE ("Mahojin1");
+		}
 	}
 }

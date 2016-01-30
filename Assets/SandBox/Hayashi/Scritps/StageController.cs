@@ -27,6 +27,9 @@ public class StageController : MonoBehaviour {
 	public GameObject[] textAssets;
 
 	void Start() {
+		// GameManagerから準備のできているプレイヤーの数を取得する.
+		// playerNum = GameManager.GetInstance ().ReadyStatusList.readyStatusList.Count;
+
 		// ステージの情報を引っ張ってくる.
 		StringReader stringReader = new StringReader (textAssets [playerNum].GetComponent<StageData> ().mapSize.text);
 		string[] str;
@@ -67,7 +70,7 @@ public class StageController : MonoBehaviour {
 			// 魔法陣ように空のオブジェクトを生成.
 			GameObject mahojin = (GameObject)Instantiate (mahojinPrefab);
 			// とりあえず、地面が0でscaleが1のcube上に表示するので,0.6上にあげている.
-			mahojin.transform.position = new Vector3 ((int)mahojinsPos [i].x, 0.6f, (int)mahojinsPos [i].y);
+			mahojin.transform.position = new Vector3 ((int)mahojinsPos [i].x, 0.1f, (int)mahojinsPos [i].y);
 			mahojin.transform.parent = this.gameObject.transform;
 			// サイズは後で微調整.
 			mahojin.transform.localScale = Vector3.one * 1.5f;
