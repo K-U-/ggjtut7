@@ -80,12 +80,19 @@ public class StageController : MonoBehaviour {
 
 		// キャラクターの生成位置を引っ張ってくる.
 		stringReader = new StringReader (textAssets [playerNum].GetComponent<StageData> ().playerStartPos.text);
-		int characterIndex = 1;
+		int characterIndex = 0;
 		while (stringReader.Peek () > -1) {					
 			str = stringReader.ReadLine ().Split (',');
 			GameObject obj = (GameObject)Instantiate (characterPrefab);
 			obj.transform.position = new Vector3 (int.Parse (str [0]), 1.0f, int.Parse (str [1]));
-			obj.name = GameManager.GetInstance().myInfo.id.ToString();
+            if (GameManager.GetInstance().ReadyStatusList.readyStatusList.Count > characterIndex)
+            {
+                obj.name = GameManager.GetInstance().ReadyStatusList.readyStatusList[characterIndex].info.id.ToString();
+            }
+            else
+            {
+                obj.name = "hoge";
+            }
 			characterIndex++;
 			CharacterEnter (int.Parse (str [0]), int.Parse (str [1]));
 		}

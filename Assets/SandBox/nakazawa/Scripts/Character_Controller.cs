@@ -76,15 +76,15 @@ public class Character_Controller : MonoBehaviour{
     }
 
     private void search(Vector3 pos, MoveCommand command) {
-        Debug.Log(stage.panels[(int)pos.x, (int)pos.z]);
-        if (stage.panels[(int)pos.x, (int)pos.z] == 0 && stage.panels[(int)pos.x, (int)pos.z] == 2)
+        Debug.Log(stage.panels[(int)pos.x, (int)pos.z] + ":" + pos + ":");
+        if (stage.panels[(int)pos.x, (int)pos.z] == 0 || stage.panels[(int)pos.x, (int)pos.z] == 2)
         {
             stage.CharacterExit((int)this.transform.position.x, (int)this.transform.position.z);
-            //Debug.Log("x = " + (int)this.transform.position.x + "\r\nz = " + (int)this.transform.position.z);
+            Debug.Log("x = " + (int)this.transform.position.x + "\r\nz = " + (int)this.transform.position.z);
             transform.position += Vector3.right * command.offsetX;
             transform.position += Vector3.forward * command.offsetZ;
             stage.CharacterEnter((int)this.transform.position.x, (int)this.transform.position.z);
-            //Debug.Log("x = " + (int)this.transform.position.x + "\r\nz = " + (int)this.transform.position.z);
+            Debug.Log("x = " + (int)this.transform.position.x + "\r\nz = " + (int)this.transform.position.z);
         }
     }
 
