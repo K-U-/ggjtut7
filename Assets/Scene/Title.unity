@@ -1217,6 +1217,7 @@ GameObject:
   - 114: {fileID: 1174571393}
   - 114: {fileID: 1174571392}
   - 114: {fileID: 1174571391}
+  - 81: {fileID: 1174571395}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -1290,6 +1291,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!81 &1174571395
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1174571390}
+  m_Enabled: 1
 --- !u!1 &1241216739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1411,6 +1419,48 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1241216739}
+--- !u!1001 &1275075448
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 426008, guid: d6a898121db1045b6a4d4d7935287fd9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 426008, guid: d6a898121db1045b6a4d4d7935287fd9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 426008, guid: d6a898121db1045b6a4d4d7935287fd9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 426008, guid: d6a898121db1045b6a4d4d7935287fd9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 426008, guid: d6a898121db1045b6a4d4d7935287fd9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 426008, guid: d6a898121db1045b6a4d4d7935287fd9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 426008, guid: d6a898121db1045b6a4d4d7935287fd9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 426008, guid: d6a898121db1045b6a4d4d7935287fd9, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d6a898121db1045b6a4d4d7935287fd9, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1428390617
 GameObject:
   m_ObjectHideFlags: 0
