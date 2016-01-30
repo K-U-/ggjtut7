@@ -4,13 +4,15 @@ using System.Collections;
 public class ArrowEvent : MonoBehaviour {
 
     MoveCommand sampleCommand;
+    private string PlayerID;
 
     void Awake()
     {
         sampleCommand = new MoveCommand();
-    }
+        PlayerID = GameManager.GetInstance().myInfo.id.ToString();
+}
 
-    public string PlayerID;
+    
     public int MaxNum;
 
     void move(string id, float x, float z) {

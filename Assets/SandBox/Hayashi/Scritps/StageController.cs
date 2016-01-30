@@ -85,7 +85,7 @@ public class StageController : MonoBehaviour {
 			str = stringReader.ReadLine ().Split (',');
 			GameObject obj = (GameObject)Instantiate (characterPrefab);
 			obj.transform.position = new Vector3 (int.Parse (str [0]), 1.0f, int.Parse (str [1]));
-			obj.name = "Player" + characterIndex;
+			obj.name = GameManager.GetInstance().myInfo.id.ToString();
 			characterIndex++;
 			CharacterEnter (int.Parse (str [0]), int.Parse (str [1]));
 		}
