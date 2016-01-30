@@ -301,14 +301,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf70f512e262416985b6986a2eab5cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 163208, guid: ac448160d9eef4ad48a4940345fc87a0, type: 2}
+  prefab: {fileID: 128576, guid: 254e7c410d8a043d094953320ada4a9a, type: 2}
   row: 0
   col: 0
   mahojinsPos: []
   mahojinPrefab: {fileID: 137070, guid: 1c295e090731d8d40a4f6d51d7d94c16, type: 2}
-  playerNum: 4
+  playerNum: 8
   characterPrefab: {fileID: 142910, guid: eddef6f9c1d809c4ab835989cec46dc9, type: 2}
   textAssets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 159342, guid: 060b3e9d62a684034b73d666c96a9311, type: 2}
   - {fileID: 115772, guid: 64ab003cd04d04be38ab3dc683311924, type: 2}
   - {fileID: 138262, guid: 77058a01c3f974ba79d4b2f9efab5094, type: 2}

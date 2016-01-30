@@ -28,7 +28,7 @@ public class StageController : MonoBehaviour {
 
 	void Start() {
 		// ステージの情報を引っ張ってくる.
-		StringReader stringReader = new StringReader (textAssets [5 - playerNum].GetComponent<StageData> ().mapSize.text);
+		StringReader stringReader = new StringReader (textAssets [playerNum].GetComponent<StageData> ().mapSize.text);
 		string[] str;
 		while (stringReader.Peek () > -1) {
 			// 列,行,魔法陣の数
@@ -44,16 +44,16 @@ public class StageController : MonoBehaviour {
 				// プレハブから生成.
 				GameObject obj = (GameObject)Instantiate (prefab);
 				// 配置.(y軸はとりあえず0にする : 地面)
-				obj.transform.position = new Vector3 (x, -1.0f, y);
+				obj.transform.position = new Vector3 (x, 0.0f, y);
 				obj.transform.parent = this.gameObject.transform;
-				obj.GetComponent<MeshRenderer> ().material.color = Color.black;
+				// obj.GetComponent<MeshRenderer> ().material.color = Color.black;
 				// ステージの状態を更新.
 				panels [x, y] = (int)State.NONE;
 			}
 		}
 
 		// 魔法陣の位置を引っ張ってくる.
-		stringReader = new StringReader (textAssets [5 - playerNum].GetComponent<StageData> ().mahojinPos.text);
+		stringReader = new StringReader (textAssets [playerNum].GetComponent<StageData> ().mahojinPos.text);
 		int mahojinIndex = 0;
 		while (stringReader.Peek () > -1) {					
 			str = stringReader.ReadLine ().Split (',');
@@ -79,7 +79,7 @@ public class StageController : MonoBehaviour {
 		}
 
 		// キャラクターの生成位置を引っ張ってくる.
-		stringReader = new StringReader (textAssets [5 - playerNum].GetComponent<StageData> ().playerStartPos.text);
+		stringReader = new StringReader (textAssets [playerNum].GetComponent<StageData> ().playerStartPos.text);
 		int characterIndex = 1;
 		while (stringReader.Peek () > -1) {					
 			str = stringReader.ReadLine ().Split (',');
