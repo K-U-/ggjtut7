@@ -306,8 +306,14 @@ MonoBehaviour:
   col: 0
   mahojinsPos: []
   mahojinPrefab: {fileID: 137070, guid: 1c295e090731d8d40a4f6d51d7d94c16, type: 2}
-  playerNum: 5
+  playerNum: 4
   characterPrefab: {fileID: 142910, guid: eddef6f9c1d809c4ab835989cec46dc9, type: 2}
+  textAssets:
+  - {fileID: 159342, guid: 060b3e9d62a684034b73d666c96a9311, type: 2}
+  - {fileID: 115772, guid: 64ab003cd04d04be38ab3dc683311924, type: 2}
+  - {fileID: 138262, guid: 77058a01c3f974ba79d4b2f9efab5094, type: 2}
+  - {fileID: 180510, guid: 91de40bbecba040cd9218da0f92395da, type: 2}
+  - {fileID: 183430, guid: eb60f0eaca89c4338af5d5f24c78303f, type: 2}
 --- !u!4 &1529563470
 Transform:
   m_ObjectHideFlags: 0

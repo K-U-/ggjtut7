@@ -23,25 +23,22 @@ public class StageController : MonoBehaviour {
 	public int playerNum;
 	// キャラクターのプレハブ.
 	public GameObject characterPrefab;
-
+	// テキストデータを持っている.
+	public GameObject[] textAssets;
 
 	void Start() {
-
 		// ステージの情報を引っ張ってくる.
-		FileInfo fileInfo = new FileInfo(Application.dataPath + "/SandBox/Hayashi/StageData/" + playerNum + "/MapSize.csv");
+		StringReader stringReader = new StringReader (textAssets [5 - playerNum].GetComponent<StageData> ().mapSize.text);
 		string[] str;
-		// Debug.Log(Application.dataPath);
-		try {
-			using(StreamReader streamReader = new StreamReader(fileInfo.OpenRead(), Encoding.UTF8)) {
-				// 列,行,魔法陣の数
-				str = streamReader.ReadLine().Split(',');
-				row = int.Parse(str[0]);
-				col = int.Parse(str[1]);
-				mahojinsPos = new Vector2[int.Parse(str[2])];
-			}
-		} catch (Exception e) {};
-
-		panels = new int[row,col];
+		while (stringReader.Peek () > -1) {
+			// 列,行,魔法陣の数
+			str = stringReader.ReadLine ().Split (',');
+			row = int.Parse (str [0]);
+			col = int.Parse (str [1]);
+			mahojinsPos = new Vector2[int.Parse (str [2])];
+		}
+			
+		panels = new int[row, col];
 		for (int x = 0; x < row; x++) {
 			for (int y = 0; y < col; y++) {
 				// プレハブから生成.
@@ -51,30 +48,24 @@ public class StageController : MonoBehaviour {
 				obj.transform.parent = this.gameObject.transform;
 				obj.GetComponent<MeshRenderer> ().material.color = Color.black;
 				// ステージの状態を更新.
-				panels[x,y] = (int)State.NONE;
+				panels [x, y] = (int)State.NONE;
 			}
 		}
 
 		// 魔法陣の位置を引っ張ってくる.
-		fileInfo = new FileInfo(Application.dataPath + "/SandBox/Hayashi/StageData/" + playerNum + "/MahojinPos.csv");
+		stringReader = new StringReader (textAssets [5 - playerNum].GetComponent<StageData> ().mahojinPos.text);
 		int mahojinIndex = 0;
-		try {
-			using(StreamReader streamReader = new StreamReader(fileInfo.OpenRead(), Encoding.UTF8)) {
-				string line;
-				while ((line = streamReader.ReadLine()) != null) {
-					str = line.Split(',');
-					mahojinsPos[mahojinIndex].x = int.Parse(str[0]);
-					mahojinsPos[mahojinIndex].y = int.Parse(str[1]);
-					mahojinIndex++;
-				}
-			}
-		} catch (Exception e) {};
-
+		while (stringReader.Peek () > -1) {					
+			str = stringReader.ReadLine ().Split (',');
+			mahojinsPos [mahojinIndex].x = int.Parse (str [0]);
+			mahojinsPos [mahojinIndex].y = int.Parse (str [1]);
+			mahojinIndex++;
+		}
 
 		// 魔法陣を置く.
-		for (int i = 0; i < mahojinsPos.Length; i++ ) {
+		for (int i = 0; i < mahojinsPos.Length; i++) {
 			// 魔法陣ように空のオブジェクトを生成.
-			GameObject mahojin = (GameObject)Instantiate(mahojinPrefab);
+			GameObject mahojin = (GameObject)Instantiate (mahojinPrefab);
 			// とりあえず、地面が0でscaleが1のcube上に表示するので,0.6上にあげている.
 			mahojin.transform.position = new Vector3 ((int)mahojinsPos [i].x, 0.6f, (int)mahojinsPos [i].y);
 			mahojin.transform.parent = this.gameObject.transform;
@@ -84,25 +75,19 @@ public class StageController : MonoBehaviour {
 			mahojin.name = "mahojin" + i;
 			mahojin.AddComponent<MahojinController> ();
 			// 魔法陣の位置をステージの配列に教える.
-			SettingMahojin((int)mahojinsPos[i].x, (int)mahojinsPos[i].y);
+			SettingMahojin ((int)mahojinsPos [i].x, (int)mahojinsPos [i].y);
 		}
 
 		// キャラクターの生成位置を引っ張ってくる.
-		fileInfo = new FileInfo(Application.dataPath + "/SandBox/Hayashi/StageData/" + playerNum + "/PlayerStartPos.csv");
+		stringReader = new StringReader (textAssets [5 - playerNum].GetComponent<StageData> ().playerStartPos.text);
 		int characterIndex = 1;
-		try {
-			using(StreamReader streamReader = new StreamReader(fileInfo.OpenRead(), Encoding.UTF8)) {
-				string line;
-				while ((line = streamReader.ReadLine()) != null) {
-					GameObject obj = (GameObject)Instantiate(characterPrefab);
-					str = line.Split(',');
-					obj.transform.position = new Vector3(int.Parse(str[0]), 1.0f, int.Parse(str[1]));
-					obj.name = "Player" + characterIndex;
-					characterIndex++;
-				}
-			}
-		} catch (Exception e) {};
-
+		while (stringReader.Peek () > -1) {					
+			str = stringReader.ReadLine ().Split (',');
+			GameObject obj = (GameObject)Instantiate (characterPrefab);
+			obj.transform.position = new Vector3 (int.Parse (str [0]), 1.0f, int.Parse (str [1]));
+			obj.name = "Player" + characterIndex;
+			characterIndex++;
+		}
 	}
 		
 	// キャラクターが乗っている場所の情報を入れる.
