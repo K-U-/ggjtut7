@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3c032de7072da3843859737d6b1aa288
-timeCreated: 1454112497
+timeCreated: 1454174695
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -25,6 +25,25 @@ TextureImporter:
     21300036: CH_Body03
     21300038: CH_Leg03
     21300040: CH_ButtomArm03
+    21300042: CH_Eye03
+    21300044: CH_Eye04
+    21300046: CH_Hair04
+    21300048: CH_Hair05
+    21300050: CH_Hair06
+    21300052: CH_Body04
+    21300054: CH_Body05
+    21300056: CH_Body06
+    21300058: CH_Leg04
+    21300060: CH_Leg05
+    21300062: CH_Leg06
+    21300064: CH_UpperArm03
+    21300066: CH_UpperArm04
+    21300068: CH_UpperArm05
+    21300070: CH_ButtomArm04
+    21300072: CH_ButtomArm05
+    21300074: CH_Wepom03
+    21300076: CH_Wepom04
+    21300078: CH_Wepom05
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -425,60 +444,60 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 1793
+        y: 1792
         width: 128
         height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -43, y: 57}
-        - {x: -53, y: 45}
-        - {x: -57, y: 31}
-        - {x: -57, y: -21}
-        - {x: 49, y: -21}
-        - {x: 54, y: -18}
-        - {x: 54, y: 53}
-        - {x: 37, y: 57}
+      - - {x: -43, y: 58}
+        - {x: -53, y: 46}
+        - {x: -57, y: 32}
+        - {x: -57, y: -20}
+        - {x: 49, y: -20}
+        - {x: 54, y: -17}
+        - {x: 54, y: 54}
+        - {x: 37, y: 58}
     - name: CH_Body03
       rect:
         serializedVersion: 2
         x: 256
-        y: 1665
+        y: 1664
         width: 128
         height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -13, y: 45}
-        - {x: -26, y: 33}
-        - {x: -26, y: -35}
-        - {x: -21, y: -46}
-        - {x: 21, y: -46}
-        - {x: 31, y: -38}
-        - {x: 31, y: -10}
-        - {x: 27, y: 32}
-        - {x: 15, y: 45}
+      - - {x: -13, y: 46}
+        - {x: -26, y: 34}
+        - {x: -26, y: -34}
+        - {x: -21, y: -45}
+        - {x: 21, y: -45}
+        - {x: 31, y: -37}
+        - {x: 31, y: -9}
+        - {x: 27, y: 33}
+        - {x: 15, y: 46}
     - name: CH_Leg03
       rect:
         serializedVersion: 2
         x: 256
-        y: 1537
+        y: 1536
         width: 128
         height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -10, y: 10}
-        - {x: -14, y: 8}
-        - {x: -14, y: -21}
-        - {x: -4, y: -41}
-        - {x: 12, y: -41}
-        - {x: 15, y: -36}
-        - {x: 15, y: 5}
-        - {x: 13, y: 10}
+      - - {x: -10, y: 11}
+        - {x: -14, y: 9}
+        - {x: -14, y: -20}
+        - {x: -4, y: -40}
+        - {x: 12, y: -40}
+        - {x: 15, y: -35}
+        - {x: 15, y: 6}
+        - {x: 13, y: 11}
     - name: CH_ButtomArm03
       rect:
         serializedVersion: 2
@@ -497,6 +516,399 @@ TextureImporter:
         - {x: 29, y: -36}
         - {x: 29, y: -4}
         - {x: 6, y: 8}
+    - name: CH_Eye03
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1920
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: -1}
+        - {x: -10, y: -2}
+        - {x: -10, y: -26}
+        - {x: -5, y: -33}
+        - {x: 5, y: -33}
+        - {x: 16, y: -12}
+        - {x: 16, y: -1}
+      - - {x: -41, y: 1}
+        - {x: -41, y: -29}
+        - {x: -37, y: -32}
+        - {x: -29, y: -32}
+        - {x: -17, y: -28}
+        - {x: -17, y: 1}
+    - name: CH_Eye04
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1920
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 5}
+        - {x: -10, y: 0}
+        - {x: -25, y: 5}
+        - {x: -35, y: 5}
+        - {x: -45, y: 0}
+        - {x: -45, y: -26}
+        - {x: -43, y: -34}
+        - {x: 12, y: -34}
+        - {x: 15, y: -33}
+        - {x: 15, y: -4}
+        - {x: 6, y: 5}
+    - name: CH_Hair04
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1792
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -49, y: 62}
+        - {x: -57, y: 34}
+        - {x: -57, y: -62}
+        - {x: -45, y: -62}
+        - {x: -16, y: -54}
+        - {x: -6, y: -62}
+        - {x: 25, y: -62}
+        - {x: 56, y: -48}
+        - {x: 56, y: 24}
+        - {x: 42, y: 62}
+    - name: CH_Hair05
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1792
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -37, y: 31}
+        - {x: -46, y: 31}
+        - {x: -47, y: 22}
+        - {x: -47, y: -10}
+        - {x: -44, y: -14}
+        - {x: -42, y: -14}
+        - {x: -38, y: -10}
+        - {x: -34, y: 9}
+        - {x: -34, y: 18}
+      - - {x: 26, y: 36}
+        - {x: 13, y: 29}
+        - {x: 13, y: 13}
+        - {x: 21, y: -14}
+        - {x: 47, y: -14}
+        - {x: 47, y: 16}
+        - {x: 36, y: 36}
+      - - {x: -29, y: 33}
+        - {x: -21, y: 27}
+        - {x: -12, y: 27}
+        - {x: 21, y: 40}
+        - {x: 21, y: 51}
+        - {x: 20, y: 56}
+        - {x: -10, y: 59}
+        - {x: -24, y: 59}
+        - {x: -29, y: 53}
+    - name: CH_Hair06
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1792
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2, y: 62}
+        - {x: -35, y: 59}
+        - {x: -56, y: 28}
+        - {x: -56, y: -32}
+        - {x: 49, y: -32}
+        - {x: 64, y: -12}
+        - {x: 64, y: 46}
+        - {x: 48, y: 62}
+    - name: CH_Body04
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1664
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 46}
+        - {x: -26, y: 34}
+        - {x: -26, y: -34}
+        - {x: -21, y: -45}
+        - {x: 21, y: -45}
+        - {x: 31, y: -37}
+        - {x: 31, y: -9}
+        - {x: 27, y: 33}
+        - {x: 15, y: 46}
+    - name: CH_Body05
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1664
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19, y: 46}
+        - {x: -27, y: 39}
+        - {x: -27, y: -32}
+        - {x: -12, y: -45}
+        - {x: 20, y: -45}
+        - {x: 31, y: -37}
+        - {x: 31, y: 24}
+        - {x: 23, y: 46}
+    - name: CH_Body06
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1664
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: -51}
+        - {x: 24, y: -51}
+        - {x: 35, y: -48}
+        - {x: 35, y: 1}
+        - {x: 18, y: 46}
+        - {x: -21, y: 46}
+        - {x: -31, y: 2}
+    - name: CH_Leg04
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1536
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 11}
+        - {x: -14, y: 9}
+        - {x: -14, y: -20}
+        - {x: -4, y: -40}
+        - {x: 12, y: -40}
+        - {x: 15, y: -35}
+        - {x: 15, y: 6}
+        - {x: 13, y: 11}
+    - name: CH_Leg05
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: -34}
+        - {x: -12, y: -40}
+        - {x: 17, y: -40}
+        - {x: 21, y: -38}
+        - {x: 21, y: 4}
+        - {x: 19, y: 11}
+        - {x: -17, y: 11}
+    - name: CH_Leg06
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1536
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 11}
+        - {x: -14, y: 9}
+        - {x: -14, y: -20}
+        - {x: -4, y: -40}
+        - {x: 12, y: -40}
+        - {x: 15, y: -35}
+        - {x: 15, y: 6}
+        - {x: 13, y: 11}
+    - name: CH_UpperArm03
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1408
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 6}
+        - {x: -6, y: 4}
+        - {x: -6, y: -6}
+        - {x: 2, y: -20}
+        - {x: 11, y: -20}
+        - {x: 15, y: -19}
+        - {x: 15, y: -4}
+        - {x: 7, y: 6}
+    - name: CH_UpperArm04
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1408
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 6}
+        - {x: -6, y: 4}
+        - {x: -6, y: -6}
+        - {x: 2, y: -20}
+        - {x: 11, y: -20}
+        - {x: 15, y: -19}
+        - {x: 15, y: -4}
+        - {x: 7, y: 6}
+    - name: CH_UpperArm05
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1408
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 7}
+        - {x: -5, y: 7}
+        - {x: -8, y: 1}
+        - {x: -8, y: -19}
+        - {x: -3, y: -20}
+        - {x: 13, y: -20}
+        - {x: 15, y: -17}
+        - {x: 15, y: 2}
+    - name: CH_ButtomArm04
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1280
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: 8}
+        - {x: -5, y: 8}
+        - {x: -8, y: 4}
+        - {x: -8, y: -13}
+        - {x: -6, y: -27}
+        - {x: -1, y: -31}
+        - {x: 13, y: -31}
+        - {x: 19, y: -29}
+        - {x: 20, y: -23}
+        - {x: 20, y: -9}
+        - {x: 4, y: 7}
+    - name: CH_ButtomArm05
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1280
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 8}
+        - {x: -9, y: 3}
+        - {x: -9, y: -22}
+        - {x: 0, y: -31}
+        - {x: 12, y: -31}
+        - {x: 20, y: -24}
+        - {x: 20, y: -11}
+        - {x: 4, y: 8}
+    - name: CH_Wepom03
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 64}
+        - {x: -12, y: 57}
+        - {x: -15, y: 22}
+        - {x: -15, y: -6}
+        - {x: -9, y: -8}
+        - {x: 4, y: -8}
+        - {x: 9, y: -7}
+        - {x: 9, y: -1}
+        - {x: 6, y: 60}
+        - {x: 3, y: 64}
+    - name: CH_Wepom04
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 64}
+        - {x: -16, y: 51}
+        - {x: -16, y: 9}
+        - {x: -9, y: -5}
+        - {x: 6, y: -5}
+        - {x: 7, y: -4}
+        - {x: 11, y: 39}
+        - {x: 11, y: 61}
+        - {x: 9, y: 64}
+    - name: CH_Wepom05
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 64}
+        - {x: -21, y: 44}
+        - {x: -21, y: 10}
+        - {x: -6, y: -4}
+        - {x: 9, y: -4}
+        - {x: 21, y: 25}
+        - {x: 21, y: 45}
+        - {x: 3, y: 64}
     outline: []
   spritePackingTag: 
   userData: 
