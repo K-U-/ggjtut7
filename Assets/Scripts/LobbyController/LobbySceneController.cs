@@ -6,6 +6,7 @@ public class LobbySceneController : MonoBehaviour {
 
     public Text roomName;
     public ReadyListContentController[] readyList;
+    public GameObject readyButton;
 
     IEnumerator Start()
     {
@@ -18,6 +19,18 @@ public class LobbySceneController : MonoBehaviour {
             yield return new WaitForSeconds(1);
         }
         
+    }
+
+    private void UpdateReadyButtonStatus(){
+        if (GameManager.GetInstance().myInfo.isHost &&
+            GameManager.GetInstance().ReadyStatusList.readyStatusList.Count >= 4)
+        {
+            readyButton.SetActive(true);
+        }
+        else
+        {
+            readyButton.SetActive(false);
+        }
     }
 
     private void UpdateReadyView()

@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
 
 [Serializable]
 public class ReadyCommand
@@ -27,6 +28,8 @@ public class GameManager : Photon.MonoBehaviour {
 
     public PlayerInfo myInfo;
 
+    private Dictionary<string, Character_Controller> characterDictionary = new Dictionary<string, Character_Controller>();
+
     void Awake()
     {
         readyStatusList = new PlayerReadyStatusList();
@@ -40,6 +43,25 @@ public class GameManager : Photon.MonoBehaviour {
     {
         PhotonRPCHandler.joinEvent += JoinUser;
         PhotonRPCHandler.updateReadyEvent += UpdateReadyList;
+    }
+
+    public void AttachInGameEvent()
+    {
+        PhotonRPCHandler.syncPositionEvent += OnSyncPositionEvent;
+    }
+
+    public void DetachInGameEvent()
+    {
+        PhotonRPCHandler.syncPositionEvent -= OnSyncPositionEvent;
+    }
+
+    public void OnSyncPositionEvent(PhotonRPCModel model)
+    {
+        SyncCommand command = JsonUtility.FromJson<SyncCommand>(model.message);
+        if (characterDictionary.ContainsKey(model.senderId))
+        {
+            characterDictionary[model.senderId].RepositionPlayer(command);
+        }
     }
 
     public void InitializePlayerInfo(string name)
@@ -80,7 +102,7 @@ public class GameManager : Photon.MonoBehaviour {
         {
             foreach (PlayerReadyStatus player in this.readyStatusList.readyStatusList)
             {
-                if (PhotonNetwork.playerList.Any(_ => _.ID == player.info.id))
+                if (!PhotonNetwork.playerList.Any(_ => _.ID == player.info.id))
                 {
                     this.readyStatusList.readyStatusList.Remove(player);
                     break;

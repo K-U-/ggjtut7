@@ -14,7 +14,8 @@ public class ReadyListContentController : MonoBehaviour {
     {
         defaultPosition = transform.localPosition;
         nameLabel = GetComponentInChildren<Text>();
-        //transform.localPosition += (isRight ? Vector3.right : Vector3.left) * 300f;
+        nameLabel.color = Color.white;
+        transform.localScale = Vector3.zero;
         hiddenPosition = transform.localPosition;
     }
 
@@ -36,11 +37,9 @@ public class ReadyListContentController : MonoBehaviour {
 
     public void Show()
     {
-        gameObject.SetActive(true);
-        return;
-        iTween.MoveTo(gameObject, iTween.Hash(
+        iTween.ScaleTo(gameObject, iTween.Hash(
                 "islocal",true,
-                "position",defaultPosition,
+                "scale",Vector3.one,
                 "easetype",iTween.EaseType.easeOutBack,
                 "time",0.3f
             ));
@@ -48,11 +47,9 @@ public class ReadyListContentController : MonoBehaviour {
 
     public void Hide()
     {
-        gameObject.SetActive(false);
-        return;
-        iTween.MoveTo(gameObject, iTween.Hash(
+        iTween.ScaleTo(gameObject, iTween.Hash(
                 "islocal", true,
-                "position", hiddenPosition,
+                "scale", Vector3.zero,
                 "easetype", iTween.EaseType.easeInCubic,
                 "time", 0.3f
             ));
