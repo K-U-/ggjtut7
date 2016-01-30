@@ -11,6 +11,7 @@ public enum PhotonRPCCommand
     StartSync,
     SyncPosition,
     Departure,
+	Costume,
 }
 
 public class PhotonRPCModel : ModelBase
@@ -32,6 +33,7 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
     public static OnRecieveEvent startSyncEvent;
     public static OnRecieveEvent syncPositionEvent;
     public static OnRecieveEvent departureEvent;
+	public static OnRecieveEvent costumeEvent;
 
     public static PhotonRPCHandler GetInstance()
     {
@@ -50,7 +52,8 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
         {PhotonRPCCommand.UpdateReadyList,OnUpdateReady},
         {PhotonRPCCommand.StartSync,OnStartSync},
         {PhotonRPCCommand.SyncPosition,OnSyncPosition},
-        {PhotonRPCCommand.Departure,OnDepartureEvent}
+        {PhotonRPCCommand.Departure,OnDepartureEvent},
+		{PhotonRPCCommand.Costume, OnCostumeEvent}
     };
 
     private static void OnMoveEvent(PhotonRPCModel model)
@@ -93,6 +96,11 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
     {
         departureEvent(model);
     }
+
+	private static void OnCostumeEvent(PhotonRPCModel model)
+	{
+		costumeEvent (model);
+	}
 
 
     [SerializeField]
