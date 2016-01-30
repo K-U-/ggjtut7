@@ -542,7 +542,7 @@ RectTransform:
   - {fileID: 185374170}
   - {fileID: 1465518711}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -730,127 +730,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1216115354}
---- !u!1 &1254938341
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1254938342}
-  - 82: {fileID: 1254938344}
-  - 114: {fileID: 1254938343}
-  m_Layer: 0
-  m_Name: Audio
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1254938342
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1254938341}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
---- !u!114 &1254938343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1254938341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91fc6e2b778324412acf915f2bb51552, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seList:
-  - {fileID: 8300000, guid: 3b329c0ce78d94328933b8815ab3b727, type: 3}
-  - {fileID: 8300000, guid: 3c885829e32264d6d9bf573953464008, type: 3}
-  - {fileID: 8300000, guid: fb9ba882c941b44648f6abaa3fc05f6b, type: 3}
-  bgmList:
-  - {fileID: 8300000, guid: 52252239027bc4895ae5efbff33387fe, type: 3}
-  - {fileID: 8300000, guid: f39b39d556eac49a095545d7b2b61334, type: 3}
---- !u!82 &1254938344
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1254938341}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!1 &1348916936
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,6 +1072,7 @@ MonoBehaviour:
   - {fileID: 138262, guid: 77058a01c3f974ba79d4b2f9efab5094, type: 2}
   - {fileID: 180510, guid: 91de40bbecba040cd9218da0f92395da, type: 2}
   - {fileID: 183430, guid: eb60f0eaca89c4338af5d5f24c78303f, type: 2}
+  wallPrefab: {fileID: 133706, guid: 1a5e40ecb5f7c413a9ff2b91cc47f399, type: 2}
 --- !u!4 &1529563470
 Transform:
   m_ObjectHideFlags: 0
@@ -1231,7 +1111,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1772670076}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &1772670078
 Behaviour:
   m_ObjectHideFlags: 0
@@ -1485,7 +1365,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &1971171298
 GameObject:
   m_ObjectHideFlags: 0
