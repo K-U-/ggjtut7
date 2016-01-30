@@ -452,7 +452,7 @@ PlayerSettings:
   WebGL::emscriptenArgs: 
   WebGL::template: APPLICATION:Default
   additionalIl2CppArgs::additionalIl2CppArgs: 
-  cloudProjectId: 
-  projectName: 
-  organizationId: 
+  cloudProjectId: 1d3b058c-8181-442c-9ee9-ee7594ca7af2
+  projectName: ggttut7
+  organizationId: ku-f4e8e748-74d9-4e98-adb7-9e408711c1ec
   cloudEnabled: 0
