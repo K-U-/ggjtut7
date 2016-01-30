@@ -29,5 +29,5 @@ public class CubeSerializer : Photon.MonoBehaviour {
             Debug.Log("r = " + r + " g = " + g + " b = " + b + " a = " + a);
             this.GetComponent<Renderer>().material.color = new Vector4(r, g, b, a);
         }
-    }
+    }    
 }
