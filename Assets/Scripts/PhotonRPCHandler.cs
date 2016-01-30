@@ -17,7 +17,10 @@ public class PhotonRPCModel : ModelBase
 
 public class PhotonRPCHandler : Photon.MonoBehaviour{
 
-    
+    public delegate void OnRecieveEvent(PhotonRPCModel model);
+    public static OnRecieveEvent moveEvent;
+    public static OnRecieveEvent killEvent;
+
     private Dictionary<PhotonRPCCommand, System.Action<PhotonRPCModel>> RPCCommandDictionary = new Dictionary<PhotonRPCCommand, System.Action<PhotonRPCModel>>
     {
         {PhotonRPCCommand.Move,OnRecieveMove},
@@ -38,6 +41,7 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
         PhotonRPCModel model = JsonUtility.FromJson<PhotonRPCModel>(message);
         if (RPCCommandDictionary.ContainsKey(model.command))
         {
+            Debug.Log(message);
             RPCCommandDictionary[model.command](model);
         }
     }
@@ -49,7 +53,7 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
     /// </summary>
     /// <param name="model"></param>
     static void OnRecieveMove(PhotonRPCModel model){
-        Debug.Log("OnRecieveMove from " + model.senderId);
+        moveEvent(model);
     }
 
     /// <summary>
@@ -57,7 +61,7 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
     /// </summary>
     /// <param name="model"></param>
     static void OnRecieveKill(PhotonRPCModel model){
-        Debug.Log("OnrecieveKill from " + model.senderId);
+        killEvent(model);
     }
 #endregion //RPCCommands
 }
