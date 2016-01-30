@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 
 /// <summary>
@@ -18,5 +19,5 @@ public class PlayerReadyStatus : ModelBase
 /// </summary>
 [Serializable]
 public class PlayerReadyStatusList : ModelBase {
-    PlayerReadyStatus[] readyStatusList;
+    public List<PlayerReadyStatus> readyStatusList;
 }

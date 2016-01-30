@@ -64,6 +64,7 @@ public class RoomChose : Photon.MonoBehaviour
         roomOptions.isOpen = true;
         roomOptions.maxPlayers = 8;
         PhotonNetwork.CreateRoom(name, roomOptions, TypedLobby.Default);
+
     }
 
     //接続失敗時にコール
@@ -82,7 +83,8 @@ public class RoomChose : Photon.MonoBehaviour
     {
         Debug.Log("OnCreatedRoom");
         Room room = PhotonNetwork.room;
-        Debug.Log(room.name);
+
+        GameManager.GetInstance().InitializePlayerId(PhotonNetwork.player.ID);
 
         TargetActive();
     }
