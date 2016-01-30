@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6a173adb38f815e4694c55f628ff553d
-timeCreated: 1454138287
+timeCreated: 1454176693
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -14,6 +14,8 @@ TextureImporter:
     21300014: GUI_Akuma
     21300016: GUI_Akuma_Down
     21300018: GUI_Back
+    21300020: GUI_Icon_human
+    21300022: GUI_Icon_devil
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -71,12 +73,12 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -43, y: 82}
-        - {x: -68, y: 69}
-        - {x: -68, y: -73}
-        - {x: -52, y: -82}
-        - {x: 67, y: -82}
-        - {x: 67, y: 82}
+      - - {x: -38, y: 82}
+        - {x: -67, y: 71}
+        - {x: -67, y: -73}
+        - {x: -61, y: -82}
+        - {x: 65, y: -82}
+        - {x: 65, y: 82}
     - name: GUI_Key_Down
       rect:
         serializedVersion: 2
@@ -88,12 +90,12 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -43, y: 82}
-        - {x: -68, y: 69}
-        - {x: -68, y: -73}
-        - {x: -52, y: -82}
-        - {x: 67, y: -82}
-        - {x: 67, y: 82}
+      - - {x: -38, y: 82}
+        - {x: -67, y: 71}
+        - {x: -67, y: -73}
+        - {x: -61, y: -82}
+        - {x: 65, y: -82}
+        - {x: 65, y: 82}
     - name: GUI_Button
       rect:
         serializedVersion: 2
@@ -141,14 +143,28 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -23, y: 34}
-        - {x: -34, y: 19}
-        - {x: -34, y: -30}
-        - {x: -23, y: -34}
-        - {x: 29, y: -34}
-        - {x: 34, y: -30}
-        - {x: 34, y: 29}
-        - {x: 21, y: 34}
+      - - {x: -18, y: 34}
+        - {x: -31, y: 25}
+        - {x: -34, y: 18}
+        - {x: -34, y: -21}
+        - {x: -19, y: -34}
+        - {x: 18, y: -34}
+        - {x: 34, y: -18}
+        - {x: 34, y: 17}
+        - {x: 28, y: 34}
+      - - {x: -13, y: -19}
+        - {x: -19, y: 13}
+        - {x: 13, y: 19}
+        - {x: 19, y: -13}
+      - - {x: -24, y: -17}
+        - {x: -18, y: -24}
+        - {x: 13, y: -24}
+        - {x: 24, y: -14}
+        - {x: 24, y: 12}
+        - {x: 22, y: 15}
+        - {x: 13, y: 24}
+        - {x: -9, y: 24}
+        - {x: -24, y: 17}
     - name: GUI_Kill
       rect:
         serializedVersion: 2
@@ -328,6 +344,42 @@ TextureImporter:
         - {x: -251, y: -128}
         - {x: -237, y: -122}
         - {x: -234, y: -121}
+    - name: GUI_Icon_human
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 736
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -64, y: 64}
+        - {x: -64, y: -52}
+        - {x: -31, y: -64}
+        - {x: 43, y: -64}
+        - {x: 64, y: -48}
+        - {x: 64, y: 64}
+    - name: GUI_Icon_devil
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 736
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -62, y: 64}
+        - {x: -64, y: 53}
+        - {x: -64, y: -40}
+        - {x: -48, y: -64}
+        - {x: 53, y: -64}
+        - {x: 64, y: -39}
+        - {x: 64, y: 36}
+        - {x: 59, y: 64}
     outline: []
   spritePackingTag: 
   userData: 
