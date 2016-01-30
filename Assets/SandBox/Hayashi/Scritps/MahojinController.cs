@@ -15,8 +15,11 @@ public class MahojinController : MonoBehaviour {
 	// キャラクターが乗っているかどうか.
 	public bool onCharacter;
 	// 0~1の間でゲージが溜まる.
-	[SerializeField,Range(0,1)]
-	protected float controlGauge;
+	[SerializeField,Range(0,30)]
+	private int  controlGauge;
+	// ゲージのマックス.
+	[SerializeField]
+	int maxGauge = 30;
 	// 魔法陣が光る為のスクリプト.
 	private MagicCircleLight mCL;
 
@@ -33,14 +36,14 @@ public class MahojinController : MonoBehaviour {
 
 	void Update() {
 		// 光はゲージの値で入れる.
-		 mCL.LightState = controlGauge;
+		mCL.LightState = controlGauge / (float)maxGauge;
 	}
 
 	/// <summary>
 	/// ゲージを貯める為の関数.
 	/// </summary>
 	/// <param name="value">Value : 増やす量.</param>
-	public void AddGauge(float value) {
+	public void AddGauge(int value) {
 		controlGauge += value;
 	}
 
@@ -49,7 +52,7 @@ public class MahojinController : MonoBehaviour {
 	/// </summary>
 	/// <param name="value">Value : 減らす量.</param>
 
-	public void subGauge(float value) {
+	public void subGauge(int value) {
 		controlGauge -= value;
 	}
 }
