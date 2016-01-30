@@ -15,13 +15,14 @@ public class MahojinController : MonoBehaviour {
 	// キャラクターが乗っているかどうか.
 	public bool onCharacter;
 	// 0~1の間でゲージが溜まる.
-	[SerializeField,Range(0,30)]
 	private int  controlGauge;
 	// ゲージのマックス.
 	[SerializeField]
 	int maxGauge = 30;
 	// 魔法陣が光る為のスクリプト.
 	private MagicCircleLight mCL;
+	// 音を鳴らすかどうかを決めるフラグ.
+	private bool soundPlayed;
 
 	void Start() {
 		// ゲーム開始時には,誰も乗っていない.
@@ -29,6 +30,9 @@ public class MahojinController : MonoBehaviour {
 
 		// 自身のMCLを拾う.
 		mCL = GetComponent<MagicCircleLight>();
+
+		// ゲーム開始時には,音は鳴らせる状態.
+		soundPlayed = false;
 
 		// 確認用.
 		// GetComponent<MeshRenderer>().enabled = false;
@@ -45,6 +49,13 @@ public class MahojinController : MonoBehaviour {
 	/// <param name="value">Value : 増やす量.</param>
 	public void AddGauge(int value) {
 		controlGauge += value;
+		if (controlGauge >= maxGauge) {
+			controlGauge = maxGauge;
+			if (soundPlayed == false) {
+				AudioController.PlaySE ("Mahojin1");
+				soundPlayed = true;
+			}
+		}
 	}
 
 	/// <summary>
@@ -54,5 +65,9 @@ public class MahojinController : MonoBehaviour {
 
 	public void subGauge(int value) {
 		controlGauge -= value;
+		if (controlGauge <= 0) {
+			controlGauge = 0;
+			soundPlayed = false;
+		}
 	}
 }

@@ -87,17 +87,18 @@ public class StageController : MonoBehaviour {
 			obj.transform.position = new Vector3 (int.Parse (str [0]), 1.0f, int.Parse (str [1]));
 			obj.name = "Player" + characterIndex;
 			characterIndex++;
+			CharacterEnter (int.Parse (str [0]), int.Parse (str [1]));
 		}
 	}
 		
 	// キャラクターが乗っている場所の情報を入れる.
-	void CharacterEnter(int x, int y) {
+	public void CharacterEnter(int x, int y) {
 		// ステージの状態を更新.
 		panels[x,y] = (int)State.ON_CHARACTER;
 	}
 
 	// キャラクターが乗っている場所を離れた情報を入れる.
-	void CharacterExit(int x, int y) {
+	public void CharacterExit(int x, int y) {
 		// ステージの状態を更新.
 		panels[x,y] = (int)State.NONE;
 	}
