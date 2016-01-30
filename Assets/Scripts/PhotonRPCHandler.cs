@@ -7,7 +7,10 @@ public enum PhotonRPCCommand
     Join,
     UpdateReadyList,
     Move,
-    Kill
+    Kill,
+    StartSync,
+    SyncPosition,
+    Departure,
 }
 
 public class PhotonRPCModel : ModelBase
@@ -26,6 +29,9 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
     public static OnRecieveEvent killEvent;
     public static OnRecieveEvent joinEvent;
     public static OnRecieveEvent updateReadyEvent;
+    public static OnRecieveEvent startSyncEvent;
+    public static OnRecieveEvent syncPositionEvent;
+    public static OnRecieveEvent departureEvent;
 
     public static PhotonRPCHandler GetInstance()
     {
@@ -41,7 +47,10 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
         {PhotonRPCCommand.Move,OnMoveEvent},
         {PhotonRPCCommand.Kill,OnKillEvent},
         {PhotonRPCCommand.Join,OnJoinEvent},
-        {PhotonRPCCommand.UpdateReadyList,OnUpdateReady}
+        {PhotonRPCCommand.UpdateReadyList,OnUpdateReady},
+        {PhotonRPCCommand.StartSync,OnStartSync},
+        {PhotonRPCCommand.SyncPosition,OnSyncPosition},
+        {PhotonRPCCommand.Departure,OnDepartureEvent}
     };
 
     private static void OnMoveEvent(PhotonRPCModel model)
@@ -62,6 +71,21 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
     private static void OnUpdateReady(PhotonRPCModel model)
     {
         updateReadyEvent(model);
+    }
+
+    private static void OnStartSync(PhotonRPCModel model)
+    {
+        startSyncEvent(model);
+    }
+
+    private static void OnSyncPosition(PhotonRPCModel model)
+    {
+        syncPositionEvent(model);
+    }
+
+    private static void OnDepartureEvent(PhotonRPCModel model)
+    {
+        departureEvent(model);
     }
 
 

@@ -31,8 +31,23 @@ public class StageController : MonoBehaviour {
 	// 外壁のプレハブ.
 	public GameObject wallPrefab;
 
+    IEnumerator SyncRoutine()
+    {
+        while (true)
+        {
+            PhotonRPCModel model = new PhotonRPCModel();
+            model.command = PhotonRPCCommand.StartSync;
+            model.senderId = gameObject.name;
+            PhotonRPCHandler.GetInstance().PostRPC(model);
+            yield return new WaitForSeconds(3.0f);
+        }
+    }
 
 	void Start() {
+        if (GameManager.GetInstance().myInfo.isHost)
+        {
+            StartCoroutine(SyncRoutine());
+        }
 		// GameManagerから準備のできているプレイヤーの数を取得する.
 		playerNum = GameManager.GetInstance ().ReadyStatusList.readyStatusList.Count;
 
@@ -154,4 +169,6 @@ public class StageController : MonoBehaviour {
 			}
 		}
 	}
+
+    
 }
