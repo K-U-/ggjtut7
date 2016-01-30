@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour {
 	private Vector3 offset;
 
 	void Start() {
-
+        target = GameObject.Find(GameManager.GetInstance().myInfo.id.ToString()).gameObject.transform;
 
 		// 決め打ちすみません.
 		offset = new Vector3 (0.0f, -8.0f, 3.5f);
