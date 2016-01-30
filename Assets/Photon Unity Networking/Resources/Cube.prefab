@@ -104,12 +104,11 @@ MonoBehaviour:
   group: 0
   prefixBackup: -1
   observed: {fileID: 0}
-  synchronization: 3
+  synchronization: 2
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
-  - {fileID: 434552}
   - {fileID: 11497618}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
@@ -135,20 +134,24 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: ObservedComponents.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: synchronization
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ObservedComponents.Array.data[0]
       value: 
-      objectReference: {fileID: 434552}
+      objectReference: {fileID: 11497618}
     - target: {fileID: 0}
       propertyPath: ObservedComponents.Array.data[1]
       value: 
       objectReference: {fileID: 11497618}
+    - target: {fileID: 0}
+      propertyPath: s
+      value: test
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 167746}

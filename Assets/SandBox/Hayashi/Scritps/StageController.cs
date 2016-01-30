@@ -27,6 +27,9 @@ public class StageController : MonoBehaviour {
 	public GameObject[] textAssets;
 
 	void Start() {
+		// GameManagerから準備のできているプレイヤーの数を取得する.
+		// playerNum = GameManager.GetInstance ().ReadyStatusList.readyStatusList.Count;
+
 		// ステージの情報を引っ張ってくる.
 		StringReader stringReader = new StringReader (textAssets [playerNum].GetComponent<StageData> ().mapSize.text);
 		string[] str;
@@ -67,7 +70,7 @@ public class StageController : MonoBehaviour {
 			// 魔法陣ように空のオブジェクトを生成.
 			GameObject mahojin = (GameObject)Instantiate (mahojinPrefab);
 			// とりあえず、地面が0でscaleが1のcube上に表示するので,0.6上にあげている.
-			mahojin.transform.position = new Vector3 ((int)mahojinsPos [i].x, 0.6f, (int)mahojinsPos [i].y);
+			mahojin.transform.position = new Vector3 ((int)mahojinsPos [i].x, 0.1f, (int)mahojinsPos [i].y);
 			mahojin.transform.parent = this.gameObject.transform;
 			// サイズは後で微調整.
 			mahojin.transform.localScale = Vector3.one * 1.5f;
@@ -80,12 +83,19 @@ public class StageController : MonoBehaviour {
 
 		// キャラクターの生成位置を引っ張ってくる.
 		stringReader = new StringReader (textAssets [playerNum].GetComponent<StageData> ().playerStartPos.text);
-		int characterIndex = 1;
+		int characterIndex = 0;
 		while (stringReader.Peek () > -1) {					
 			str = stringReader.ReadLine ().Split (',');
 			GameObject obj = (GameObject)Instantiate (characterPrefab);
 			obj.transform.position = new Vector3 (int.Parse (str [0]), 1.0f, int.Parse (str [1]));
-			obj.name = "Player" + characterIndex;
+            if (GameManager.GetInstance().ReadyStatusList.readyStatusList.Count > characterIndex)
+            {
+                obj.name = GameManager.GetInstance().ReadyStatusList.readyStatusList[characterIndex].info.id.ToString();
+            }
+            else
+            {
+                obj.name = "hoge";
+            }
 			characterIndex++;
 			CharacterEnter (int.Parse (str [0]), int.Parse (str [1]));
 		}
