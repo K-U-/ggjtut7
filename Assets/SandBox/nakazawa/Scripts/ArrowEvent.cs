@@ -69,7 +69,7 @@ public class ArrowEvent : MonoBehaviour {
     void Kill() {
         if (TouchPlatform() == false)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
                 raycast();
             }

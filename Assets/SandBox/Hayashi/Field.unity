@@ -276,6 +276,38 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 499049291}
+--- !u!1 &832609091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 832609092}
+  m_Layer: 5
+  m_Name: TickerParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &832609092
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 832609091}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1016007011}
+  m_RootOrder: 6
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &838634867
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,6 +495,7 @@ GameObject:
   - 223: {fileID: 1016007010}
   - 114: {fileID: 1016007009}
   - 114: {fileID: 1016007008}
+  - 114: {fileID: 1016007012}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -541,6 +574,7 @@ RectTransform:
   - {fileID: 499049292}
   - {fileID: 185374170}
   - {fileID: 1465518711}
+  - {fileID: 832609092}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
@@ -548,6 +582,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1016007012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1016007007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88d925d5a5ed0b847aa0dbe9a528e190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tickerObject: {fileID: 119918, guid: ec4e1a1765e4d4c4484870f46a2d8d1f, type: 2}
+  controller:
+  - {fileID: 980132175}
+  - {fileID: 499049291}
+  - {fileID: 185374169}
+  - {fileID: 1465518710}
+  tickerParent: {fileID: 832609092}
 --- !u!1 &1074941539
 GameObject:
   m_ObjectHideFlags: 0
