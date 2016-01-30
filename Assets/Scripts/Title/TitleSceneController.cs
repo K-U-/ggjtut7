@@ -65,7 +65,14 @@ public class TitleSceneController : Photon.MonoBehaviour {
         roomOptions.isOpen = true;
         roomOptions.maxPlayers = 8;
         GameManager.GetInstance().roomName = input.text;
-        PhotonNetwork.JoinOrCreateRoom(input.text, roomOptions, TypedLobby.Default);
+        if (willHost)
+        {
+            PhotonNetwork.JoinOrCreateRoom(input.text, roomOptions, TypedLobby.Default);
+        }
+        else
+        {
+            PhotonNetwork.JoinRoom(input.text);
+        }
 
     }
 

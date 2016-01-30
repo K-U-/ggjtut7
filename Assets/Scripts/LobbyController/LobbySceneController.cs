@@ -27,8 +27,12 @@ public class LobbySceneController : MonoBehaviour {
         PlayerReadyStatusList list = GameManager.GetInstance().ReadyStatusList;
         for (int i = 0; i < list.readyStatusList.Count; ++i)
         {
-            Debug.Log(list.readyStatusList[i].info.name);
             nameArray[i].text = list.readyStatusList[i].info.name;
         }
+    }
+
+    public void Departure()
+    {
+        GameManager.GetInstance().LoadScene("Field");
     }
 }
