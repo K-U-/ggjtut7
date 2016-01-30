@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
+public class CostumeCommand {
+	public string target;
+	public CharactorCos characotorCostume;
+}
+
 public class SetCos : MonoBehaviour {
     public Sprite[] Head;
     public Sprite[] Eye;
@@ -17,11 +23,36 @@ public class SetCos : MonoBehaviour {
     public SpriteRenderer[] LegBase;
     public SpriteRenderer WeponBase;
 
+	void Awake() {
+		PhotonRPCHandler.costumeEvent += SendCostume;
+	}
+
     // Use this for initialization
     void Start () {
         //SetCharaCos(1, 1, 1, 1, 1, 1, 1);
-		// SetCharaCos(Random.Range(0, Head.Length), Random.Range(0, Eye.Length), Random.Range(0, Body.Length), Random.Range(0, Uarm.Length), Random.Range(0, Barm.Length), Random.Range(0, Leg.Length), Random.Range(0, Wepon.Length));
+		CharactorCos characterCos = new CharactorCos();
+		characterCos.HeadIndex = Random.Range (0, Head.Length);
+		characterCos.EyeIndex = Random.Range (0, Eye.Length);
+		characterCos.BodyIndex = Random.Range(0, Body.Length);
+		characterCos.UarmIndex = Random.Range (0, Uarm.Length);
+		characterCos.BarmIndex = Random.Range (0, Barm.Length);
+		characterCos.LegIndex = Random.Range (0, Leg.Length);
+		characterCos.WeponIndex = Random.Range (0, Wepon.Length);
+		SetCharaCos (characterCos);
+		PhotonRPCModel model = new PhotonRPCModel ();
+		model.senderId = GameManager.GetInstance ().myInfo.id.ToString();
+		model.command = PhotonRPCCommand.Costume;
+		CostumeCommand command = new CostumeCommand ();
+		command.target = model.senderId;
+		command.characotorCostume = characterCos;
+		model.message = JsonUtility.ToJson(command);
+		PhotonRPCHandler.GetInstance().PostRPC(model);
     }
+
+
+	void OnDestroy() {
+		PhotonRPCHandler.costumeEvent -= SendCostume;
+	}
 
 	public void GenerateRandomCostume(CharactorCos model) {
 		model.HeadIndex = Random.Range (0, Head.Length);
@@ -32,9 +63,16 @@ public class SetCos : MonoBehaviour {
 		model.LegIndex = Random.Range (0, Leg.Length);
 		model.WeponIndex = Random.Range (0, Wepon.Length);
 	}
-
+		
 	public void SetCharaCos(CharactorCos model) {
 		SetCharaCos (model.HeadIndex, model.EyeIndex, model.BodyIndex, model.UarmIndex,model.BarmIndex, model.LegIndex, model.WeponIndex);
+	}
+
+	private void SendCostume(PhotonRPCModel model) {
+		CostumeCommand command = JsonUtility.FromJson<CostumeCommand> (model.message);
+		if (command.target == gameObject.name) {
+			SetCharaCos (command.characotorCostume);
+		}
 	}
 
 	// Update is called once per frame

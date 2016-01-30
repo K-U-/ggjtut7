@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -11,6 +11,7 @@ public enum PhotonRPCCommand
     StartSync,
     SyncPosition,
     Departure,
+	Costume,
     ActionTickerEvent
 }
 
@@ -33,6 +34,7 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
     public static OnRecieveEvent startSyncEvent;
     public static OnRecieveEvent syncPositionEvent;
     public static OnRecieveEvent departureEvent;
+	public static OnRecieveEvent costumeEvent;
     public static OnRecieveEvent actionTickerEvent;
 
     public static PhotonRPCHandler GetInstance()
@@ -52,6 +54,8 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
         {PhotonRPCCommand.UpdateReadyList,OnUpdateReady},
         {PhotonRPCCommand.StartSync,OnStartSync},
         {PhotonRPCCommand.SyncPosition,OnSyncPosition},
+        {PhotonRPCCommand.Departure,OnDepartureEvent},
+		{PhotonRPCCommand.Costume, OnCostumeEvent},
         {PhotonRPCCommand.Departure,OnDepartureEvent},
         {PhotonRPCCommand.ActionTickerEvent,OnActionTickerEvent}
     };
@@ -103,6 +107,10 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
         departureEvent(model);
     }
 
+	private static void OnCostumeEvent(PhotonRPCModel model)
+	{
+		costumeEvent (model);
+	}
     private static void OnActionTickerEvent(PhotonRPCModel model){
         if(actionTickerEvent != null){
             actionTickerEvent(model);

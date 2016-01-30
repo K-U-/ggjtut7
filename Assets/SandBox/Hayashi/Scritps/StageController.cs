@@ -27,10 +27,13 @@ public class StageController : MonoBehaviour {
 	public GameObject characterPrefab;
 	// テキストデータを持っている.
 	public GameObject[] textAssets;
-	// コスチュームを保持.
-    private Dictionary<int, CharactorCos> playerCos = new Dictionary<int, CharactorCos>();
 	// 外壁のプレハブ.
 	public GameObject wallPrefab;
+
+
+	private CostumeCommand costumeCommand;
+	private string playerID;
+
 
     IEnumerator SyncRoutine()
     {
@@ -44,6 +47,11 @@ public class StageController : MonoBehaviour {
         }
     }
 
+	void Awake() {
+		costumeCommand = new CostumeCommand ();
+		playerID = GameManager.GetInstance ().myInfo.id.ToString ();
+	}
+
 	void Start() {
         if (GameManager.GetInstance().myInfo.isHost)
         {
@@ -52,13 +60,6 @@ public class StageController : MonoBehaviour {
 		// GameManagerから準備のできているプレイヤーの数を取得する.
         playerNum = GameManager.GetInstance().ReadyStatusList.readyStatusList.Where(_ => !_.info.isSpector).ToList().Count;
 
-		SetCos setCos = characterPrefab.GetComponent<SetCos> ();
-		CharactorCos model = new CharactorCos ();
-		// コスチュームを先に選択しておく.
-		for (int i = 0; i < playerNum; i++) {
-			setCos.GenerateRandomCostume (model);
-			playerCos.Add (i, model);
-		}
 
 		// ステージの情報を引っ張ってくる.
 		StringReader stringReader = new StringReader (textAssets [playerNum].GetComponent<StageData> ().mapSize.text);
@@ -125,7 +126,7 @@ public class StageController : MonoBehaviour {
 			// 魔法陣の位置をステージの配列に教える.
 			SettingMahojin ((int)mahojinsPos [i].x, (int)mahojinsPos [i].y);
 		}
-
+			
 		// キャラクターの生成位置を引っ張ってくる.
 		stringReader = new StringReader (textAssets [playerNum].GetComponent<StageData> ().playerStartPos.text);
 		int characterIndex = 0;
@@ -135,8 +136,7 @@ public class StageController : MonoBehaviour {
 			obj.transform.position = new Vector3 (int.Parse (str [0]), 1.0f, int.Parse (str [1]));
             if (GameManager.GetInstance().ReadyStatusList.readyStatusList.Count > characterIndex)
             {
-				// あらかじめ作っておいたコスチュームを持ってくる.
-				obj.GetComponent<SetCos>().SetCharaCos(this.playerCos[characterIndex]);
+				// 名前をidにする.
                 obj.name = GameManager.GetInstance().ReadyStatusList.readyStatusList[characterIndex].info.id.ToString();
             }
             else
@@ -147,6 +147,16 @@ public class StageController : MonoBehaviour {
 			CharacterEnter (int.Parse (str [0]), int.Parse (str [1]));
 		}
 	}
+
+//	void ChangeCostume(string id, CharactorCos charactorCos) {
+//		costumeCommand.target = id;
+//		costumeCommand.characotorCostume = charactorCos;
+//		PhotonRPCModel model = new PhotonRPCModel ();
+//		model.senderId = playerID;
+//		model.command = PhotonRPCCommand.Costume;
+//		model.message = JsonUtility.ToJson (costumeCommand);
+//		PhotonRPCHandler.GetInstance ().PostRPC (model);
+//	}
 		
 	// キャラクターが乗っている場所の情報を入れる.
 	public void CharacterEnter(int x, int y) {
