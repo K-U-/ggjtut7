@@ -20,9 +20,23 @@ public class SetCos : MonoBehaviour {
     // Use this for initialization
     void Start () {
         //SetCharaCos(1, 1, 1, 1, 1, 1, 1);
-        SetCharaCos(Random.Range(0, Head.Length), Random.Range(0, Eye.Length), Random.Range(0, Body.Length), Random.Range(0, Uarm.Length), Random.Range(0, Barm.Length), Random.Range(0, Leg.Length), Random.Range(0, Wepon.Length));
+		// SetCharaCos(Random.Range(0, Head.Length), Random.Range(0, Eye.Length), Random.Range(0, Body.Length), Random.Range(0, Uarm.Length), Random.Range(0, Barm.Length), Random.Range(0, Leg.Length), Random.Range(0, Wepon.Length));
     }
-	
+
+	public void GenerateRandomCostume(CharactorCos model) {
+		model.HeadIndex = Random.Range (0, Head.Length);
+		model.EyeIndex = Random.Range (0, Eye.Length);
+		model.BodyIndex = Random.Range (0, Body.Length);
+		model.UarmIndex = Random.Range (0, Uarm.Length);
+		model.BarmIndex = Random.Range (0, Barm.Length);
+		model.LegIndex = Random.Range (0, Leg.Length);
+		model.WeponIndex = Random.Range (0, Wepon.Length);
+	}
+
+	public void SetCharaCos(CharactorCos model) {
+		SetCharaCos (model.HeadIndex, model.EyeIndex, model.BodyIndex, model.UarmIndex,model.BarmIndex, model.LegIndex, model.WeponIndex);
+	}
+
 	// Update is called once per frame
 	void SetCharaCos (int _H,int _E,int _B,int _Ua,int _Ba,int _L,int _W) {
         HeadBase.sprite = Head[_H];
@@ -38,6 +52,5 @@ public class SetCos : MonoBehaviour {
         if (_W == 0) WeponBase.enabled = false;
         else WeponBase.enabled = true;
         WeponBase.sprite = Wepon[_W];
-
     }
 }

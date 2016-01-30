@@ -1061,6 +1061,7 @@ MonoBehaviour:
   - {fileID: 138262, guid: 77058a01c3f974ba79d4b2f9efab5094, type: 2}
   - {fileID: 180510, guid: 91de40bbecba040cd9218da0f92395da, type: 2}
   - {fileID: 183430, guid: eb60f0eaca89c4338af5d5f24c78303f, type: 2}
+  wallPrefab: {fileID: 133706, guid: 1a5e40ecb5f7c413a9ff2b91cc47f399, type: 2}
 --- !u!4 &1529563470
 Transform:
   m_ObjectHideFlags: 0

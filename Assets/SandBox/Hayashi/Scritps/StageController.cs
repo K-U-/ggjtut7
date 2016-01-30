@@ -3,6 +3,7 @@ using System.Collections;
 using System.IO;
 using System.Text;
 using System;
+using System.Collections.Generic;
 
 // ステージコントローラー
 public class StageController : MonoBehaviour {
@@ -25,10 +26,23 @@ public class StageController : MonoBehaviour {
 	public GameObject characterPrefab;
 	// テキストデータを持っている.
 	public GameObject[] textAssets;
+	// コスチュームを保持.
+	private Dictionary<int, CharactorCos> playerCos;
+	// 外壁のプレハブ.
+	public GameObject wallPrefab;
+
 
 	void Start() {
 		// GameManagerから準備のできているプレイヤーの数を取得する.
-		// playerNum = GameManager.GetInstance ().ReadyStatusList.readyStatusList.Count;
+		playerNum = GameManager.GetInstance ().ReadyStatusList.readyStatusList.Count;
+
+		SetCos setCos = characterPrefab.GetComponent<SetCos> ();
+		CharactorCos model = new CharactorCos ();
+		// コスチュームを先に選択しておく.
+		for (int i = 0; i < playerNum; i++) {
+			setCos.GenerateRandomCostume (model);
+			playerCos.Add (i, model);
+		}
 
 		// ステージの情報を引っ張ってくる.
 		StringReader stringReader = new StringReader (textAssets [playerNum].GetComponent<StageData> ().mapSize.text);
@@ -53,6 +67,21 @@ public class StageController : MonoBehaviour {
 				// ステージの状態を更新.
 				panels [x, y] = (int)State.NONE;
 			}
+		}
+
+		// 外側に壁を敷き詰める.
+		for (int x = -1; x < row + 1; x++) {
+			GameObject obj1 = (GameObject)Instantiate(wallPrefab);
+			obj1.transform.position = new Vector3 (x, 0.0f, -1.0f);
+			GameObject obj2 = (GameObject)Instantiate(wallPrefab);
+			obj2.transform.position = new Vector3 (x, 0.0f, col);
+		}
+
+		for (int y = -1; y < col + 1; y++) {
+			GameObject obj1 = (GameObject)Instantiate(wallPrefab);
+			obj1.transform.position = new Vector3 (-1.0f, 0.0f, y);
+			GameObject obj2 = (GameObject)Instantiate(wallPrefab);
+			obj2.transform.position = new Vector3 (row, 0.0f, y);
 		}
 
 		// 魔法陣の位置を引っ張ってくる.
@@ -84,12 +113,14 @@ public class StageController : MonoBehaviour {
 		// キャラクターの生成位置を引っ張ってくる.
 		stringReader = new StringReader (textAssets [playerNum].GetComponent<StageData> ().playerStartPos.text);
 		int characterIndex = 0;
-		while (stringReader.Peek () > -1) {					
+		while (stringReader.Peek () > -1) {
 			str = stringReader.ReadLine ().Split (',');
 			GameObject obj = (GameObject)Instantiate (characterPrefab);
 			obj.transform.position = new Vector3 (int.Parse (str [0]), 1.0f, int.Parse (str [1]));
             if (GameManager.GetInstance().ReadyStatusList.readyStatusList.Count > characterIndex)
             {
+				// あらかじめ作っておいたコスチュームを持ってくる.
+				obj.GetComponent<SetCos>().SetCharaCos(this.playerCos[characterIndex]);
                 obj.name = GameManager.GetInstance().ReadyStatusList.readyStatusList[characterIndex].info.id.ToString();
             }
             else
