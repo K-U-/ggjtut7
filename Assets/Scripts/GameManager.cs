@@ -4,7 +4,6 @@ using System.Collections;
 
 public class GameManager : Photon.MonoBehaviour {
 
-    private PhotonView photonView;
     void Awake()
     {
         Application.targetFrameRate = 30;
@@ -16,8 +15,6 @@ public class GameManager : Photon.MonoBehaviour {
         PhotonNetwork.sendRate = 30;
 
         GameObject.DontDestroyOnLoad(this.gameObject);
-        photonView = GetComponent<PhotonView>();
-
     }
 
     public virtual void OnConnectedToMaster()
@@ -45,27 +42,5 @@ public class GameManager : Photon.MonoBehaviour {
     {
         Room room = PhotonNetwork.room;
     }
-    void OnGUI()
-    {
-        GUILayout.BeginVertical();
-        {
-            if (GUILayout.Button("Left"))
-            {
-                PhotonRPCModel model = new PhotonRPCModel();
-                model.senderId = "AAA";
-                model.command = PhotonRPCCommand.Move;
-                model.message = "AAAAA";
-                GetComponent<PhotonRPCHandler>().PostRPC(model);
-            }
-
-            if (GUILayout.Button("Kill"))
-            {
-                PhotonRPCModel model = new PhotonRPCModel();
-                model.senderId = "AAA";
-                model.command = PhotonRPCCommand.Kill;
-                model.message = "AAAAA";
-                GetComponent<PhotonRPCHandler>().PostRPC(model);
-            }
-        } GUILayout.EndVertical();
-    }
+    
 }
