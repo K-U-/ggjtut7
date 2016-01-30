@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 using System.Collections;
 
 public class LobbySceneController : MonoBehaviour {
@@ -30,7 +31,7 @@ public class LobbySceneController : MonoBehaviour {
 
     private void UpdateReadyButtonStatus(){
         if (GameManager.GetInstance().myInfo.isHost &&
-            GameManager.GetInstance().ReadyStatusList.readyStatusList.Count >= 4)
+            GameManager.GetInstance().ReadyStatusList.readyStatusList.Count(_=>!_.info.isSpector) >= 4)
         {
             readyButton.SetActive(true);
         }
@@ -42,12 +43,12 @@ public class LobbySceneController : MonoBehaviour {
 
     private void UpdateReadyView()
     {
-        PlayerReadyStatusList list = GameManager.GetInstance().ReadyStatusList;
+        var list = GameManager.GetInstance().ReadyStatusList.readyStatusList.Where(_=>!_.info.isSpector);
         for (int i = 0; i < readyList.Length; ++i)
         {
-            if (list.readyStatusList.Count > i)
+            if (list.ToList().Count > i)
             {
-                readyList[i].Initialize(list.readyStatusList[i].info.name);
+                readyList[i].Initialize(list.ToList()[i].info.name);
             }
             else
             {
@@ -58,10 +59,15 @@ public class LobbySceneController : MonoBehaviour {
 
     public void Departure()
     {
-        PhotonRPCModel model = new PhotonRPCModel();
-        model.senderId = GameManager.GetInstance().myInfo.id.ToString();
-        model.command = PhotonRPCCommand.Departure;
-        PhotonRPCHandler.GetInstance().PostRPC(model);
+        if (GameManager.GetInstance().myInfo.isHost)
+        {
+            PhotonRPCModel model = new PhotonRPCModel();
+            model.senderId = GameManager.GetInstance().myInfo.id.ToString();
+            model.command = PhotonRPCCommand.Departure;
+            model.message = "";
+        
+            PhotonRPCHandler.GetInstance().PostRPC(model);
+        }
         GameManager.GetInstance().LoadScene("Field");
     }
 

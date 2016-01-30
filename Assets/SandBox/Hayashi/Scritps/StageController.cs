@@ -3,6 +3,7 @@ using System.Collections;
 using System.IO;
 using System.Text;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 // ステージコントローラー
@@ -27,7 +28,7 @@ public class StageController : MonoBehaviour {
 	// テキストデータを持っている.
 	public GameObject[] textAssets;
 	// コスチュームを保持.
-	private Dictionary<int, CharactorCos> playerCos;
+    private Dictionary<int, CharactorCos> playerCos = new Dictionary<int, CharactorCos>();
 	// 外壁のプレハブ.
 	public GameObject wallPrefab;
 
@@ -49,7 +50,7 @@ public class StageController : MonoBehaviour {
             StartCoroutine(SyncRoutine());
         }
 		// GameManagerから準備のできているプレイヤーの数を取得する.
-		playerNum = GameManager.GetInstance ().ReadyStatusList.readyStatusList.Count;
+        playerNum = GameManager.GetInstance().ReadyStatusList.readyStatusList.Where(_ => !_.info.isSpector).ToList().Count;
 
 		SetCos setCos = characterPrefab.GetComponent<SetCos> ();
 		CharactorCos model = new CharactorCos ();

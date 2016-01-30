@@ -75,12 +75,18 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
 
     private static void OnStartSync(PhotonRPCModel model)
     {
-        startSyncEvent(model);
+        if (startSyncEvent != null)
+        {
+            startSyncEvent(model);
+        }
     }
 
     private static void OnSyncPosition(PhotonRPCModel model)
     {
-        syncPositionEvent(model);
+        if (syncPositionEvent != null)
+        {
+            syncPositionEvent(model);
+        }
     }
 
     private static void OnDepartureEvent(PhotonRPCModel model)
