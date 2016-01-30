@@ -23,6 +23,8 @@ public class MahojinController : MonoBehaviour {
 	private MagicCircleLight mCL;
 	// 音を鳴らすかどうかを決めるフラグ.
 	private bool soundPlayed;
+	// 加算するポイント.
+	public int addValue;
 
 	void Start() {
 		// ゲーム開始時には,誰も乗っていない.
@@ -52,7 +54,10 @@ public class MahojinController : MonoBehaviour {
 		if (controlGauge >= maxGauge) {
 			controlGauge = maxGauge;
 			if (soundPlayed == false) {
+				// 音でお知らせ.
 				AudioController.PlaySE ("Mahojin1");
+				// ポイントを加算.
+
 				soundPlayed = true;
 			}
 		}
