@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Linq;
 using System.Collections;
 
 
@@ -16,6 +17,13 @@ public class KillCommand
     public string target;
 }
 
+[System.Serializable]
+public class SyncCommand
+{
+    public int x;
+    public int z;
+}
+
 public class Character_Controller : MonoBehaviour{
 
     StageController stage;
@@ -27,7 +35,10 @@ public class Character_Controller : MonoBehaviour{
     {
         PhotonRPCHandler.moveEvent += MoveEvent;
         PhotonRPCHandler.killEvent += KillEvent;
-
+        if (GameManager.GetInstance().myInfo.id.ToString() == gameObject.name)
+        {
+            PhotonRPCHandler.startSyncEvent += StartSyncEvent;
+        }
         stage = GameObject.Find("Stage").GetComponent<StageController>(); ;
     }
 
@@ -35,6 +46,10 @@ public class Character_Controller : MonoBehaviour{
     {
         PhotonRPCHandler.moveEvent -= MoveEvent;
         PhotonRPCHandler.killEvent -= KillEvent;
+        if (GameManager.GetInstance().myInfo.id.ToString() == gameObject.name)
+        {
+            PhotonRPCHandler.startSyncEvent -= StartSyncEvent;
+        }
     }
 
     private void MoveEvent(PhotonRPCModel model)
@@ -106,5 +121,22 @@ public class Character_Controller : MonoBehaviour{
         anim.SetBool("Damage", true);
         yield return new WaitForSeconds(watetime);
         anim.SetBool("Damage", false);
+    }
+
+    private void StartSyncEvent(PhotonRPCModel model)
+    {
+        SyncCommand command = new SyncCommand();
+        command.x = (int)transform.position.x;
+        command.z = (int)transform.position.z;
+        PhotonRPCModel rpcmodel = new PhotonRPCModel();
+        rpcmodel.command = PhotonRPCCommand.SyncPosition;
+        rpcmodel.senderId = gameObject.name;
+        rpcmodel.message = JsonUtility.ToJson(command);
+        PhotonRPCHandler.GetInstance().PostRPC(rpcmodel);
+    }
+
+    public void RepositionPlayer(SyncCommand command)
+    {
+        //TODO:内部実装は任せます。
     }
 }

@@ -10,15 +10,22 @@ public class LobbySceneController : MonoBehaviour {
 
     IEnumerator Start()
     {
+        PhotonRPCHandler.departureEvent += OnDeparture;
         roomName.text = GameManager.GetInstance().roomName;
         while (true)
         {
             
             GameManager.GetInstance().CheckUserList();
             UpdateReadyView();
+            UpdateReadyButtonStatus();
             yield return new WaitForSeconds(1);
         }
         
+    }
+
+    void OnDestroy()
+    {
+        PhotonRPCHandler.departureEvent -= OnDeparture;
     }
 
     private void UpdateReadyButtonStatus(){
@@ -51,6 +58,18 @@ public class LobbySceneController : MonoBehaviour {
 
     public void Departure()
     {
+        PhotonRPCModel model = new PhotonRPCModel();
+        model.senderId = GameManager.GetInstance().myInfo.id.ToString();
+        model.command = PhotonRPCCommand.Departure;
+        PhotonRPCHandler.GetInstance().PostRPC(model);
         GameManager.GetInstance().LoadScene("Field");
+    }
+
+    private void OnDeparture(PhotonRPCModel model)
+    {
+        if (!GameManager.GetInstance().myInfo.isHost)
+        {
+            Departure();
+        }
     }
 }
