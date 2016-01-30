@@ -13,6 +13,7 @@ public class CameraController : MonoBehaviour {
 	void Start() {
 		// GameManagerさん,私は誰のカメラなのでしょうか!
 
+
 		// 決め打ちすみません.
 		offset = new Vector3 (0.0f, -7.0f, 3.5f);
 		transform.rotation = Quaternion.Euler (70.0f, 0.0f, 0.0f);

@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
+using System.Text;
+using System;
 
 // ステージコントローラー
 public class StageController : MonoBehaviour {
@@ -18,24 +21,25 @@ public class StageController : MonoBehaviour {
 	public GameObject mahojinPrefab;
 	// プレイヤーの人数
 	public int playerNum;
+	// キャラクターのプレハブ.
+	public GameObject characterPrefab;
+
 
 	void Start() {
-//		switch (playerNum) {
-//		case 4:
-//			row = 23;
-//			col = 23;
-//			mahojinsPos [0] = new Vector2 (3, 3);
-//			mahojinsPos [1] = new Vector2 (3, 3 + 8);
-//			mahojinsPos [2] = new Vector2 (3, 3 + 8 * 2);
-//			mahojinsPos [3] = new Vector2 (3 + 8, 3);
-//			mahojinsPos [4] = new Vector2 (3 + 8, 3 + 8);
-//			mahojinsPos [5] = new Vector2 (3 + 8, 3 + 8 * 2);
-//			mahojinsPos [6] = new Vector2 (3 + 8 * 2, 3);
-//			mahojinsPos [7] = new Vector2 (3 + 8 * 2, 3 + 8);
-//			mahojinsPos [8] = new Vector2 (3 + 8 * 2, 3 + 8 * 2);
-//			break;
-//		}
 
+		// ステージの情報を引っ張ってくる.
+		FileInfo fileInfo = new FileInfo(Application.dataPath + "/SandBox/Hayashi/StageData/" + playerNum + "/MapSize.csv");
+		string[] str;
+		// Debug.Log(Application.dataPath);
+		try {
+			using(StreamReader streamReader = new StreamReader(fileInfo.OpenRead(), Encoding.UTF8)) {
+				// 列,行,魔法陣の数
+				str = streamReader.ReadLine().Split(',');
+				row = int.Parse(str[0]);
+				col = int.Parse(str[1]);
+				mahojinsPos = new Vector2[int.Parse(str[2])];
+			}
+		} catch (Exception e) {};
 
 		panels = new int[row,col];
 		for (int x = 0; x < row; x++) {
@@ -50,6 +54,22 @@ public class StageController : MonoBehaviour {
 				panels[x,y] = (int)State.NONE;
 			}
 		}
+
+		// 魔法陣の位置を引っ張ってくる.
+		fileInfo = new FileInfo(Application.dataPath + "/SandBox/Hayashi/StageData/" + playerNum + "/MahojinPos.csv");
+		int mahojinIndex = 0;
+		try {
+			using(StreamReader streamReader = new StreamReader(fileInfo.OpenRead(), Encoding.UTF8)) {
+				string line;
+				while ((line = streamReader.ReadLine()) != null) {
+					str = line.Split(',');
+					mahojinsPos[mahojinIndex].x = int.Parse(str[0]);
+					mahojinsPos[mahojinIndex].y = int.Parse(str[1]);
+					mahojinIndex++;
+				}
+			}
+		} catch (Exception e) {};
+
 
 		// 魔法陣を置く.
 		for (int i = 0; i < mahojinsPos.Length; i++ ) {
@@ -66,6 +86,23 @@ public class StageController : MonoBehaviour {
 			// 魔法陣の位置をステージの配列に教える.
 			SettingMahojin((int)mahojinsPos[i].x, (int)mahojinsPos[i].y);
 		}
+
+		// キャラクターの生成位置を引っ張ってくる.
+		fileInfo = new FileInfo(Application.dataPath + "/SandBox/Hayashi/StageData/" + playerNum + "/PlayerStartPos.csv");
+		int characterIndex = 1;
+		try {
+			using(StreamReader streamReader = new StreamReader(fileInfo.OpenRead(), Encoding.UTF8)) {
+				string line;
+				while ((line = streamReader.ReadLine()) != null) {
+					GameObject obj = (GameObject)Instantiate(characterPrefab);
+					str = line.Split(',');
+					obj.transform.position = new Vector3(int.Parse(str[0]), 1.0f, int.Parse(str[1]));
+					obj.name = "Player" + characterIndex;
+					characterIndex++;
+				}
+			}
+		} catch (Exception e) {};
+
 	}
 		
 	// キャラクターが乗っている場所の情報を入れる.

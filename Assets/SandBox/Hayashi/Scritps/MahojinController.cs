@@ -13,7 +13,7 @@ public class MahojinController : MonoBehaviour {
 	private int y{ get{ return y;} }
 
 	// キャラクターが乗っているかどうか.
-	private bool onCharacter;
+	public bool onCharacter;
 	// 0~1の間でゲージが溜まる.
 	[SerializeField,Range(0,1)]
 	protected float controlGauge;
