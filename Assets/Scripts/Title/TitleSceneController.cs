@@ -14,6 +14,7 @@ public class TitleSceneController : Photon.MonoBehaviour {
     public Text inputName;
     private bool mState;
     private bool willHost;
+    private bool willSpector;
     void Awake()
     {
         HideAll();
@@ -88,18 +89,36 @@ public class TitleSceneController : Photon.MonoBehaviour {
     public void OnClickStartHost()
     {
         willHost = true;
+        willSpector = false;
         GameManager.GetInstance().myInfo.isHost = true;
+        GameManager.GetInstance().myInfo.isSpector = false;
         ShowInput();
     }
 
     public void OnClickStartClient()
     {
         willHost = false;
+        willSpector = false;
+        GameManager.GetInstance().myInfo.isHost = false;
+        GameManager.GetInstance().myInfo.isSpector = false;
+        ShowRoomList();
+    }
+
+    public void OnClickStartSpector()
+    {
+        willHost = false;
+        willSpector = true;
+        GameManager.GetInstance().myInfo.isHost = false;
+        GameManager.GetInstance().myInfo.isSpector = true;
         ShowRoomList();
     }
 
     public void ConfirmName()
     {
+        if (string.IsNullOrEmpty(inputName.text))
+        {
+            return;
+        }
         GameManager.GetInstance().InitializePlayerInfo(inputName.text);
         ShowLogin();
     }
@@ -108,7 +127,7 @@ public class TitleSceneController : Photon.MonoBehaviour {
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.isVisible = true;
         roomOptions.isOpen = true;
-        roomOptions.maxPlayers = 8;
+        roomOptions.maxPlayers = 20;
         GameManager.GetInstance().roomName = input.text;
         
         if (willHost)
@@ -138,6 +157,7 @@ public class TitleSceneController : Photon.MonoBehaviour {
         PlayerInfo info = new PlayerInfo();
         info.id = PhotonNetwork.player.ID;
         info.isHost = willHost;
+        info.isSpector = willSpector;
         info.name = inputName.text;
         PhotonRPCModel model = new PhotonRPCModel();
         model.senderId = PhotonNetwork.player.ID.ToString();

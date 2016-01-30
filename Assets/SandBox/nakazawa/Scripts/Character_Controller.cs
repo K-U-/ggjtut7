@@ -39,6 +39,10 @@ public class Character_Controller : MonoBehaviour{
         {
             PhotonRPCHandler.startSyncEvent += StartSyncEvent;
         }
+        else
+        {
+            PhotonRPCHandler.startSyncEvent += DummySyncEvent;
+        }
         stage = GameObject.Find("Stage").GetComponent<StageController>(); ;
     }
 
@@ -50,6 +54,14 @@ public class Character_Controller : MonoBehaviour{
         {
             PhotonRPCHandler.startSyncEvent -= StartSyncEvent;
         }
+        else
+        {
+            PhotonRPCHandler.startSyncEvent -= DummySyncEvent;
+        }
+    }
+    private void DummySyncEvent(PhotonRPCModel model)
+    {
+        return;
     }
 
     private void MoveEvent(PhotonRPCModel model)

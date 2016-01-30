@@ -7,4 +7,5 @@ public class PlayerInfo {
     public string name;
     public string hash;
     public bool isHost;
+    public bool isSpector;
 }
