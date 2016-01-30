@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 483154}
   - 212: {fileID: 21278152}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CH_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453066}
   - 212: {fileID: 21257374}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CH_LLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 402334}
   - 212: {fileID: 21209614}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CH_RUpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 487748}
   - 212: {fileID: 21236626}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CH_LButtomArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 461286}
   - 212: {fileID: 21255624}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CH_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 483464}
   - 212: {fileID: 21227176}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CH_EyeDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,11 +104,12 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 446916}
+  - 136: {fileID: 13687246}
   - 95: {fileID: 9520706}
   - 114: {fileID: 11456910}
   - 114: {fileID: 11407658}
   - 114: {fileID: 11446628}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Charactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +124,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 481610}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CH_Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +140,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 494676}
   - 212: {fileID: 21255626}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CH_Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +156,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 403730}
   - 212: {fileID: 21211058}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CH_Hair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +172,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 473312}
   - 212: {fileID: 21217774}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CH_RButtomArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +188,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 448866}
   - 212: {fileID: 21221040}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CH_LUpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +204,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 402478}
   - 212: {fileID: 21290892}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CH_RLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +220,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 431138}
   - 212: {fileID: 21249800}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CH_Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +236,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 424162}
   - 212: {fileID: 21269000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CH_Wepon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,6 +477,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90456173da706f4ab4de8e85297be6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Effect: {fileID: 180734, guid: 864f7fdf70f493340a8c00e2c5e8b11d, type: 2}
+  anim: {fileID: 9520706}
+  watetime: 2
 --- !u!114 &11456910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -526,6 +530,19 @@ MonoBehaviour:
   - {fileID: 21290892}
   - {fileID: 21257374}
   WeponBase: {fileID: 21269000}
+--- !u!136 &13687246
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142910}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &21209614
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -922,7 +939,43 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Height
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Effect
+      value: 
+      objectReference: {fileID: 180734, guid: 864f7fdf70f493340a8c00e2c5e8b11d, type: 2}
+    - target: {fileID: 0}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 9520706}
+    - target: {fileID: 0}
+      propertyPath: watetime
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 142910}
