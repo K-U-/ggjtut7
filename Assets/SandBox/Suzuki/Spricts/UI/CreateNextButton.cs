@@ -14,7 +14,7 @@ public class CreateNextButton : UIAction {
             //UIContller.GetInstance.CreateUI(mNext, Vector2.zero, Layers.Layer_Def); 
             mNext.SetActive(true);
             Reset();
-            //Destroy(gameObject); 
+            Destroy(gameObject); 
         });
 
         //ここら辺で一人目の通知
