@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/SandBox/Suzuki/Scene/DebugSuzuki.unity
+    path: Assets/Scene/Title.unity
   - enabled: 1
-    path: Assets/SandBox/Umeda/JsonSample.unity
+    path: Assets/Scene/Lobby.unity

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public enum PhotonRPCCommand
 {
+    Join,
+    UpdateReadyList,
     Move,
     Kill
 }
@@ -13,19 +15,55 @@ public class PhotonRPCModel : ModelBase
     public string message;
     public string senderId;
     public PhotonRPCCommand command;
+
 }
 
 public class PhotonRPCHandler : Photon.MonoBehaviour{
 
+    private static PhotonRPCHandler sharedInstance;
     public delegate void OnRecieveEvent(PhotonRPCModel model);
     public static OnRecieveEvent moveEvent;
     public static OnRecieveEvent killEvent;
+    public static OnRecieveEvent joinEvent;
+    public static OnRecieveEvent updateReadyEvent;
+
+    public static PhotonRPCHandler GetInstance()
+    {
+        return sharedInstance;
+    }
+    void Awake()
+    {
+        sharedInstance = this;
+    }
 
     private Dictionary<PhotonRPCCommand, System.Action<PhotonRPCModel>> RPCCommandDictionary = new Dictionary<PhotonRPCCommand, System.Action<PhotonRPCModel>>
     {
-        {PhotonRPCCommand.Move,OnRecieveMove},
-        {PhotonRPCCommand.Kill,OnRecieveKill}
+        {PhotonRPCCommand.Move,OnMoveEvent},
+        {PhotonRPCCommand.Kill,OnKillEvent},
+        {PhotonRPCCommand.Join,OnJoinEvent},
+        {PhotonRPCCommand.UpdateReadyList,OnUpdateReady}
     };
+
+    private static void OnMoveEvent(PhotonRPCModel model)
+    {
+        moveEvent(model);
+    }
+
+    private static void OnKillEvent(PhotonRPCModel model)
+    {
+        killEvent(model);
+    }
+
+    private static void OnJoinEvent(PhotonRPCModel model)
+    {
+        joinEvent(model);
+    }
+
+    private static void OnUpdateReady(PhotonRPCModel model)
+    {
+        updateReadyEvent(model);
+    }
+
 
     [SerializeField]
     private PhotonView photonView;
@@ -38,30 +76,15 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
     [PunRPC]
     void HandleRPC(string message)
     {
+        Debug.Log(message);
         PhotonRPCModel model = JsonUtility.FromJson<PhotonRPCModel>(message);
         if (RPCCommandDictionary.ContainsKey(model.command))
         {
-            Debug.Log(message);
-            RPCCommandDictionary[model.command](model);
+            if (RPCCommandDictionary[model.command] != null)
+            {
+                RPCCommandDictionary[model.command](model);
+            }
         }
     }
 
-#region RPCCommands
-
-    /// <summary>
-    /// Moveのコマンドを受信したとき
-    /// </summary>
-    /// <param name="model"></param>
-    static void OnRecieveMove(PhotonRPCModel model){
-        moveEvent(model);
-    }
-
-    /// <summary>
-    /// Killのコマンドを受信したとき
-    /// </summary>
-    /// <param name="model"></param>
-    static void OnRecieveKill(PhotonRPCModel model){
-        killEvent(model);
-    }
-#endregion //RPCCommands
 }
