@@ -5,13 +5,15 @@ using System.Collections;
 public class LobbySceneController : MonoBehaviour {
 
     public Text roomName;
-    public Text[] nameArray;
+    public ReadyListContentController[] readyList;
 
     IEnumerator Start()
     {
         roomName.text = GameManager.GetInstance().roomName;
         while (true)
         {
+            
+            GameManager.GetInstance().CheckUserList();
             UpdateReadyView();
             yield return new WaitForSeconds(1);
         }
@@ -20,14 +22,17 @@ public class LobbySceneController : MonoBehaviour {
 
     private void UpdateReadyView()
     {
-        foreach (Text name in nameArray)
-        {
-            name.text = "";
-        }
         PlayerReadyStatusList list = GameManager.GetInstance().ReadyStatusList;
-        for (int i = 0; i < list.readyStatusList.Count; ++i)
+        for (int i = 0; i < readyList.Length; ++i)
         {
-            nameArray[i].text = list.readyStatusList[i].info.name;
+            if (list.readyStatusList.Count > i)
+            {
+                readyList[i].Initialize(list.readyStatusList[i].info.name);
+            }
+            else
+            {
+                readyList[i].Initialize("");
+            }
         }
     }
 

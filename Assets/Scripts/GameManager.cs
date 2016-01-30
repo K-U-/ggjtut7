@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using System.Linq;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
@@ -73,6 +74,20 @@ public class GameManager : Photon.MonoBehaviour {
         }
     }
 
+    public void CheckUserList()
+    {
+        if (this.readyStatusList.readyStatusList.Count != PhotonNetwork.playerList.Length)
+        {
+            foreach (PlayerReadyStatus player in this.readyStatusList.readyStatusList)
+            {
+                if (PhotonNetwork.playerList.Any(_ => _.ID == player.info.id))
+                {
+                    this.readyStatusList.readyStatusList.Remove(player);
+                    break;
+                }
+            }
+        }
+    }
     /// <summary>
     /// ReadyListが更新されたとき
     /// </summary>
