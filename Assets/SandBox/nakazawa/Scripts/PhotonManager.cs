@@ -16,8 +16,7 @@ public class PhotonManager : Photon.MonoBehaviour {
         // PhotonNetworkの更新回数のセット
         PhotonNetwork.sendRate = 30;
     }
-
-
+    
     public virtual void OnConnectedToMaster()
     {
         //Debug.Log("OnConnectedToMaster() was called by PUN. Now this client is connected and could join a room. Calling: PhotonNetwork.JoinRandomRoom();");
