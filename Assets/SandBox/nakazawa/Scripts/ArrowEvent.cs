@@ -23,7 +23,7 @@ public class ArrowEvent : MonoBehaviour {
         model.senderId = "AAA";
         model.command = PhotonRPCCommand.Move;
         model.message = JsonUtility.ToJson(sampleCommand);
-        GetComponent<PhotonRPCHandler>().PostRPC(model);
+        PhotonRPCHandler.GetInstance().PostRPC(model);
     }
 
     #region 矢印キーの取得

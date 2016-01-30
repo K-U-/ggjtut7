@@ -245,7 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -340,9 +340,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 951616437}
-  - 114: {fileID: 951616436}
-  - 114: {fileID: 951616435}
-  - 114: {fileID: 951616434}
   - 114: {fileID: 951616432}
   m_Layer: 0
   m_Name: GameObject
@@ -362,62 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e81bd5a76bb1ad49aae7d16c5af9db6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerID: 3
   MaxNum: 0
---- !u!114 &951616434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 951616431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ownerId: 0
-  group: 0
-  prefixBackup: -1
-  observed: {fileID: 0}
-  synchronization: 3
-  onSerializeTransformOption: 3
-  onSerializeRigidBodyOption: 2
-  ownershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 951616437}
-  ObservedComponentsFoldoutOpen: 1
-  viewIdField: 1
-  instantiationId: 1
-  isRuntimeInstantiated: 0
---- !u!114 &951616435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 951616431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8ecf0d6f9e4a3d46b4b293401f6ba0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  photonView: {fileID: 951616434}
---- !u!114 &951616436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 951616431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64c1c61988f049a428f7a7228f50a38b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roomName: 
-  myInfo:
-    id: 0
-    name: 
-    hash: 
-    isHost: 0
 --- !u!4 &951616437
 Transform:
   m_ObjectHideFlags: 0
@@ -479,7 +421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -528,7 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
+  m_IgnoreReversedGraphics: 0
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
