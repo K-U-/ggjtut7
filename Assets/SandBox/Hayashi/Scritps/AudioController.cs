@@ -53,11 +53,21 @@ public class AudioController : MonoBehaviour {
 
 	public static void PlayBGM(string name) {
 		// もし、BGMがなっていたら止める
+		StopBGM();
+		bgmSource.clip = bgmDic [name];
+		bgmSource.Play ();
+	}
+
+	public static void StopSE() {
+		if (seSource.isPlaying) {
+			seSource.Stop ();
+		}
+	}
+
+	public static void StopBGM() {
 		if (bgmSource.isPlaying == true) {
 			bgmSource.Stop ();
 		}
-		bgmSource.clip = bgmDic [name];
-		bgmSource.Play ();
 	}
 
 }
