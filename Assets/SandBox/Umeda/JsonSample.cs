@@ -11,14 +11,14 @@ public class JsonSample : MonoBehaviour {
         info.name = "ほげ";
         info.id = 1;
 
-        FromJson();
+        ToJson();
         ToObject();
     }
 
     /// <summary>
     /// クラスのインスタンスを文字列にする
     /// </summary>
-    void FromJson()
+    void ToJson()
     {
         playerInfoJson = JsonUtility.ToJson(info);
         Debug.Log(playerInfoJson);

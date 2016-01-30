@@ -28,10 +28,6 @@ public class GameController : MonoBehaviour {
     void FixedUpdate() {
         if (photonView.isMine)
         {
-            float x = Input.GetAxis("Horizontal");
-            float z = Input.GetAxis("Vertical");
-            transform.Translate(x * 0.2f, 0, z * 0.2f);
-
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 this.GetComponent<Renderer>().material.color = ChangeColor();
