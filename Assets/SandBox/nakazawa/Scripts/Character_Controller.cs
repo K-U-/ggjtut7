@@ -125,6 +125,12 @@ public class Character_Controller : MonoBehaviour{
         {
             Instantiate(Effect, transform.position, transform.rotation);
             StartCoroutine(efect());
+            PhotonRPCModel tickermodel = new PhotonRPCModel();
+            tickermodel.senderId = model.senderId;
+            tickermodel.command = PhotonRPCCommand.ActionTickerEvent;
+            KillCommand com = JsonUtility.FromJson<KillCommand>(model.message);
+            tickermodel.message = string.Format("{0}が{1}を KILL!", model.senderId, com.target);
+            PhotonRPCHandler.GetInstance().PostRPC(tickermodel);
             //Destroy(gameObject);
         }
     }
