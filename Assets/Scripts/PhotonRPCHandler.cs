@@ -15,7 +15,9 @@ public enum PhotonRPCCommand
     ActionTickerEvent,
     StartBattleEvent,
     SyncGameRemainTimeEvent,
-    Costume}
+    Costume,
+    TimeOver
+}
 
 public class PhotonRPCModel : ModelBase
 {
@@ -41,6 +43,7 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
     public static OnRecieveEvent actionTickerEvent;
     public static OnRecieveEvent startBattleEvent;
     public static OnRecieveEvent syncGameRemainTimeEvent;
+    public static OnRecieveEvent timeOverEvent;
 
     public static PhotonRPCHandler GetInstance()
     {
@@ -64,7 +67,8 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
         {PhotonRPCCommand.StartBattleEvent,OnStartBattleEvent},
         {PhotonRPCCommand.SyncGameRemainTimeEvent,OnSyncGameRemainTimeEvent},
         {PhotonRPCCommand.ActionTickerEvent,OnActionTickerEvent},
-        {PhotonRPCCommand.Costume,OnCostumeEvent}
+        {PhotonRPCCommand.Costume,OnCostumeEvent},
+        {PhotonRPCCommand.TimeOver,OnTimeOverEvent}
     };
     private static void OnMoveEvent(PhotonRPCModel model)
     {
@@ -127,6 +131,11 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
 
     private static void OnSyncGameRemainTimeEvent(PhotonRPCModel model){
         syncGameRemainTimeEvent(model);
+    }
+
+    private static void OnTimeOverEvent(PhotonRPCModel model)
+    {
+        timeOverEvent(model);
     }
 
 

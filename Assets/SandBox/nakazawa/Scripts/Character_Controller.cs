@@ -20,24 +20,19 @@ public class KillCommand
 [System.Serializable]
 public class SyncCommand
 {
-    public string target;
     public int x;
     public int z;
 }
 
 public class Character_Controller : MonoBehaviour{
 
-    
     StageController stage;
     public GameObject Effect;
     public Animator anim;
     public float watetime;
-    public TextMesh textMesh;
-    KillTimeCommand killcmd;
 
     void Awake()
     {
-        killcmd = new KillTimeCommand();
         PhotonRPCHandler.moveEvent += MoveEvent;
         PhotonRPCHandler.killEvent += KillEvent;
         if (GameManager.GetInstance().myInfo.id.ToString() == gameObject.name)
@@ -47,25 +42,6 @@ public class Character_Controller : MonoBehaviour{
         else
         {
             PhotonRPCHandler.startSyncEvent += DummySyncEvent;
-        }
-        if (GameManager.GetInstance().myInfo.isSpector)
-        {
-            foreach (var val in GameManager.GetInstance().ReadyStatusList.readyStatusList)
-            {
-                if (val.info.id.ToString() == gameObject.name)
-                {
-                    textMesh.text = val.info.name;
-                    if (!val.info.isHuman)
-                    {
-                        textMesh.color = Color.red;
-                    }
-                }
-            }
-            textMesh.gameObject.SetActive(false);
-        }
-        else
-        {
-            textMesh.gameObject.SetActive(false);
         }
         stage = GameObject.Find("Stage").GetComponent<StageController>(); ;
     }
@@ -148,7 +124,7 @@ public class Character_Controller : MonoBehaviour{
         if (command.target == gameObject.name)
         {
             Instantiate(Effect, transform.position, transform.rotation);
-            //StartCoroutine(efe);
+            StartCoroutine(efect());
             PhotonRPCModel tickermodel = new PhotonRPCModel();
             tickermodel.senderId = model.senderId;
             tickermodel.command = PhotonRPCCommand.ActionTickerEvent;
@@ -156,19 +132,10 @@ public class Character_Controller : MonoBehaviour{
             tickermodel.message = string.Format("{0}が{1}を KILL!", model.senderId, com.target);
             PhotonRPCHandler.GetInstance().PostRPC(tickermodel);
             //Destroy(gameObject);
-
-            
-            killcmd.target = gameObject.name;
-            //killcmd.anim = anim;
-            PhotonRPCModel mod = new PhotonRPCModel();
-            mod.senderId = model.senderId;
-            mod.command = PhotonRPCCommand.Kill;
-            mod.message = JsonUtility.ToJson(killcmd);
-            PhotonRPCHandler.GetInstance().PostRPC(mod);
         }
     }
 
-    private IEnumerator efect() {
+    IEnumerator efect() {
         anim.SetBool("Damage", true);
         yield return new WaitForSeconds(watetime);
         anim.SetBool("Damage", false);
@@ -177,7 +144,6 @@ public class Character_Controller : MonoBehaviour{
     private void StartSyncEvent(PhotonRPCModel model)
     {
         SyncCommand command = new SyncCommand();
-        command.target = gameObject.name.ToString();
         command.x = (int)transform.position.x;
         command.z = (int)transform.position.z;
         PhotonRPCModel rpcmodel = new PhotonRPCModel();
@@ -189,11 +155,7 @@ public class Character_Controller : MonoBehaviour{
 
     public void RepositionPlayer(SyncCommand command)
     {
-        //TODO:内部実装は任せます。
-        Debug.Log("sync");
-        if (command.target == gameObject.name)
-        {
-            transform.position = new Vector3(command.x, 1f, command.z);
-        }
+        stage.CharacterExit((int)this.transform.position.x, (int)this.transform.position.z);
+        this.transform.position = new Vector3((float)command.x, 1f, (float)command.z);
     }
 }
