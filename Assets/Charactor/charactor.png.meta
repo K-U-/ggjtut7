@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3c032de7072da3843859737d6b1aa288
-timeCreated: 1454174695
+timeCreated: 1454198513
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -44,6 +44,9 @@ TextureImporter:
     21300074: CH_Wepom03
     21300076: CH_Wepom04
     21300078: CH_Wepom05
+    21300080: CH_Hair07
+    21300082: CH_Hair08
+    21300084: CH_Hair09
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -909,6 +912,68 @@ TextureImporter:
         - {x: 21, y: 25}
         - {x: 21, y: 45}
         - {x: 3, y: 64}
+    - name: CH_Hair07
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1792
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 29, y: 59}
+        - {x: -16, y: 59}
+        - {x: -64, y: 49}
+        - {x: -64, y: 21}
+        - {x: -62, y: 15}
+        - {x: -56, y: 7}
+        - {x: -5, y: -15}
+        - {x: 51, y: -15}
+        - {x: 51, y: 17}
+        - {x: 44, y: 53}
+    - name: CH_Hair08
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1792
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -64, y: -36}
+        - {x: -46, y: -36}
+        - {x: -27, y: -38}
+        - {x: 64, y: -38}
+        - {x: 64, y: 9}
+        - {x: 62, y: 40}
+        - {x: 43, y: 56}
+        - {x: -43, y: 56}
+        - {x: -64, y: 47}
+    - name: CH_Hair09
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1792
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35, y: 64}
+        - {x: -55, y: 41}
+        - {x: -55, y: -17}
+        - {x: -47, y: -20}
+        - {x: -38, y: -18}
+        - {x: -5, y: -36}
+        - {x: 53, y: -36}
+        - {x: 56, y: -34}
+        - {x: 56, y: 35}
+        - {x: 39, y: 64}
     outline: []
   spritePackingTag: 
   userData: 
