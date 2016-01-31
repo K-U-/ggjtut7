@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3c032de7072da3843859737d6b1aa288
-timeCreated: 1454208246
+timeCreated: 1454214667
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -47,10 +47,15 @@ TextureImporter:
     21300080: CH_Hair07
     21300082: CH_Hair08
     21300084: CH_Hair09
+    21300086: BG_prop1
+    21300088: BG_prop2
+    21300090: BG_prop3
+    21300092: BG_prop4
+    21300094: BG_prop5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -69,7 +74,7 @@ TextureImporter:
   cubemapConvolutionSteps: 7
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -3
+  textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
     filterMode: 1
@@ -89,18 +94,8 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
-  textureType: 5
-  buildTargetSettings:
-  - buildTarget: iPhone
-    maxTextureSize: 2048
-    textureFormat: 4
-    compressionQuality: 50
-    allowsAlphaSplitting: 0
-  - buildTarget: Android
-    maxTextureSize: 2048
-    textureFormat: 13
-    compressionQuality: 50
-    allowsAlphaSplitting: 0
+  textureType: 8
+  buildTargetSettings: []
   spriteSheet:
     sprites:
     - name: CH_Head
@@ -114,14 +109,12 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 24, y: 48}
-        - {x: -43, y: 48}
-        - {x: -47, y: 33}
-        - {x: -47, y: -53}
-        - {x: 38, y: -53}
-        - {x: 47, y: -38}
-        - {x: 47, y: 17}
-        - {x: 44, y: 34}
+      - - {x: -33, y: 48}
+        - {x: -47, y: 43}
+        - {x: -47, y: -49}
+        - {x: -30, y: -53}
+        - {x: 47, y: -53}
+        - {x: 47, y: 48}
     - name: CH_Eye01
       rect:
         serializedVersion: 2
@@ -133,22 +126,19 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -5, y: -1}
+      - - {x: -6, y: -1}
         - {x: -10, y: -2}
         - {x: -10, y: -26}
-        - {x: -8, y: -33}
+        - {x: -5, y: -33}
         - {x: 5, y: -33}
-        - {x: 9, y: -30}
-        - {x: 16, y: -9}
-        - {x: 16, y: -2}
-        - {x: 14, y: -1}
+        - {x: 16, y: -12}
+        - {x: 16, y: -1}
       - - {x: -41, y: 1}
-        - {x: -41, y: -28}
+        - {x: -41, y: -29}
         - {x: -37, y: -32}
-        - {x: -24, y: -32}
-        - {x: -17, y: -17}
-        - {x: -17, y: -1}
-        - {x: -20, y: 1}
+        - {x: -29, y: -32}
+        - {x: -17, y: -28}
+        - {x: -17, y: 1}
     - name: CH_EyeDamage
       rect:
         serializedVersion: 2
@@ -160,21 +150,24 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -2, y: -1}
-        - {x: -10, y: -14}
-        - {x: -10, y: -23}
-        - {x: 0, y: -32}
-        - {x: 8, y: -32}
-        - {x: 12, y: -30}
-        - {x: 12, y: -6}
-        - {x: 10, y: -1}
-      - - {x: -41, y: 0}
-        - {x: -42, y: -2}
-        - {x: -42, y: -30}
-        - {x: -29, y: -30}
-        - {x: -21, y: -19}
-        - {x: -21, y: -8}
-        - {x: -31, y: 0}
+      - - {x: 2, y: 0}
+        - {x: -10, y: -13}
+        - {x: -10, y: -20}
+        - {x: 1, y: -32}
+        - {x: 7, y: -32}
+        - {x: 12, y: -29}
+        - {x: 12, y: -2}
+        - {x: 9, y: 0}
+      - - {x: -39, y: 1}
+        - {x: -41, y: -1}
+        - {x: -42, y: -7}
+        - {x: -42, y: -23}
+        - {x: -41, y: -29}
+        - {x: -39, y: -30}
+        - {x: -30, y: -30}
+        - {x: -21, y: -26}
+        - {x: -21, y: -11}
+        - {x: -28, y: 1}
     - name: CH_Hair
       rect:
         serializedVersion: 2
@@ -186,21 +179,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -55, y: 61}
-        - {x: -62, y: 57}
-        - {x: -62, y: -7}
-        - {x: -52, y: -17}
-        - {x: -45, y: -14}
-        - {x: -46, y: -12}
-        - {x: -49, y: -9}
-        - {x: -49, y: -7}
-        - {x: -49, y: -9}
-        - {x: -43, y: -14}
-        - {x: -38, y: -21}
-        - {x: 51, y: -21}
-        - {x: 55, y: -16}
-        - {x: 55, y: 57}
-        - {x: 52, y: 61}
+      - - {x: -62, y: -13}
+        - {x: -57, y: -22}
+        - {x: 56, y: -22}
+        - {x: 56, y: 45}
+        - {x: 54, y: 56}
+        - {x: 15, y: 62}
+        - {x: -61, y: 62}
+        - {x: -62, y: 61}
     - name: CH_Body
       rect:
         serializedVersion: 2
@@ -213,14 +199,14 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -13, y: 46}
-        - {x: -18, y: 41}
-        - {x: -26, y: 17}
-        - {x: -26, y: -36}
-        - {x: -5, y: -45}
-        - {x: 7, y: -45}
-        - {x: 30, y: -39}
-        - {x: 30, y: 41}
-        - {x: 18, y: 46}
+        - {x: -26, y: 34}
+        - {x: -26, y: -34}
+        - {x: -21, y: -45}
+        - {x: 21, y: -45}
+        - {x: 31, y: -37}
+        - {x: 31, y: -9}
+        - {x: 27, y: 33}
+        - {x: 15, y: 46}
     - name: CH_Leg
       rect:
         serializedVersion: 2
@@ -232,15 +218,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -5, y: 11}
-        - {x: -14, y: 6}
-        - {x: -14, y: -13}
-        - {x: -9, y: -35}
-        - {x: -5, y: -40}
-        - {x: 13, y: -40}
-        - {x: 15, y: -19}
+      - - {x: -10, y: 11}
+        - {x: -14, y: 9}
+        - {x: -14, y: -20}
+        - {x: -4, y: -40}
+        - {x: 12, y: -40}
+        - {x: 15, y: -35}
         - {x: 15, y: 6}
-        - {x: 10, y: 11}
+        - {x: 13, y: 11}
     - name: CH_UpperArm
       rect:
         serializedVersion: 2
@@ -252,14 +237,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -5, y: 6}
+      - - {x: -2, y: 6}
         - {x: -6, y: 4}
-        - {x: -6, y: -5}
-        - {x: 3, y: -20}
-        - {x: 10, y: -20}
-        - {x: 15, y: -18}
-        - {x: 15, y: 0}
-        - {x: 5, y: 6}
+        - {x: -6, y: -6}
+        - {x: 2, y: -20}
+        - {x: 11, y: -20}
+        - {x: 15, y: -19}
+        - {x: 15, y: -4}
+        - {x: 7, y: 6}
     - name: CH_ButtomArm
       rect:
         serializedVersion: 2
@@ -271,13 +256,17 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -8, y: 8}
-        - {x: -8, y: -19}
-        - {x: -5, y: -31}
-        - {x: 15, y: -31}
-        - {x: 19, y: -24}
-        - {x: 19, y: -3}
-        - {x: 5, y: 8}
+      - - {x: 1, y: 8}
+        - {x: -5, y: 8}
+        - {x: -8, y: 4}
+        - {x: -8, y: -13}
+        - {x: -6, y: -27}
+        - {x: -1, y: -31}
+        - {x: 13, y: -31}
+        - {x: 19, y: -29}
+        - {x: 20, y: -23}
+        - {x: 20, y: -9}
+        - {x: 4, y: 7}
     - name: CH_Eye02
       rect:
         serializedVersion: 2
@@ -289,22 +278,19 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -5, y: -1}
+      - - {x: -6, y: -1}
         - {x: -10, y: -2}
         - {x: -10, y: -26}
-        - {x: -8, y: -33}
+        - {x: -5, y: -33}
         - {x: 5, y: -33}
-        - {x: 9, y: -30}
-        - {x: 16, y: -9}
-        - {x: 16, y: -2}
-        - {x: 14, y: -1}
+        - {x: 16, y: -12}
+        - {x: 16, y: -1}
       - - {x: -41, y: 1}
-        - {x: -41, y: -28}
+        - {x: -41, y: -29}
         - {x: -37, y: -32}
-        - {x: -24, y: -32}
-        - {x: -17, y: -17}
-        - {x: -17, y: -1}
-        - {x: -20, y: 1}
+        - {x: -29, y: -32}
+        - {x: -17, y: -28}
+        - {x: -17, y: 1}
     - name: CH_Hair02
       rect:
         serializedVersion: 2
@@ -316,12 +302,12 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -40, y: 64}
-        - {x: -40, y: 56}
-        - {x: -21, y: 25}
-        - {x: -4, y: 25}
-        - {x: 21, y: 39}
-        - {x: 21, y: 55}
+      - - {x: -41, y: 64}
+        - {x: -41, y: 54}
+        - {x: -24, y: 25}
+        - {x: -3, y: 25}
+        - {x: 21, y: 42}
+        - {x: 21, y: 56}
         - {x: 12, y: 64}
     - name: CH_Body02
       rect:
@@ -334,13 +320,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -17, y: 46}
-        - {x: -27, y: 34}
-        - {x: -27, y: -32}
+      - - {x: -23, y: 46}
+        - {x: -27, y: 28}
+        - {x: -27, y: -42}
         - {x: -20, y: -45}
-        - {x: 33, y: -45}
-        - {x: 33, y: 42}
-        - {x: 20, y: 46}
+        - {x: 12, y: -45}
+        - {x: 33, y: -36}
+        - {x: 33, y: 2}
+        - {x: 29, y: 29}
+        - {x: 13, y: 46}
     - name: CH_Leg02
       rect:
         serializedVersion: 2
@@ -352,15 +340,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -5, y: 11}
-        - {x: -14, y: 6}
-        - {x: -14, y: -13}
-        - {x: -9, y: -35}
-        - {x: -5, y: -40}
-        - {x: 13, y: -40}
-        - {x: 15, y: -19}
+      - - {x: -10, y: 11}
+        - {x: -14, y: 9}
+        - {x: -14, y: -20}
+        - {x: -4, y: -40}
+        - {x: 12, y: -40}
+        - {x: 15, y: -35}
         - {x: 15, y: 6}
-        - {x: 10, y: 11}
+        - {x: 13, y: 11}
     - name: CH_UpperArm02
       rect:
         serializedVersion: 2
@@ -374,13 +361,11 @@ TextureImporter:
       outline:
       - - {x: -6, y: 11}
         - {x: -7, y: 7}
-        - {x: -7, y: -9}
-        - {x: 2, y: -20}
-        - {x: 10, y: -20}
-        - {x: 16, y: -18}
+        - {x: -7, y: -4}
+        - {x: 3, y: -20}
+        - {x: 12, y: -20}
         - {x: 17, y: -10}
-        - {x: 17, y: 6}
-        - {x: 13, y: 11}
+        - {x: 17, y: 11}
     - name: CH_ButtomArm02
       rect:
         serializedVersion: 2
@@ -392,13 +377,17 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -8, y: 8}
-        - {x: -8, y: -19}
-        - {x: -5, y: -31}
-        - {x: 15, y: -31}
-        - {x: 19, y: -24}
-        - {x: 19, y: -3}
-        - {x: 5, y: 8}
+      - - {x: 1, y: 8}
+        - {x: -5, y: 8}
+        - {x: -8, y: 4}
+        - {x: -8, y: -13}
+        - {x: -6, y: -27}
+        - {x: -1, y: -31}
+        - {x: 13, y: -31}
+        - {x: 19, y: -29}
+        - {x: 20, y: -23}
+        - {x: 20, y: -9}
+        - {x: 4, y: 7}
     - name: CH_Wepon01
       rect:
         serializedVersion: 2
@@ -410,13 +399,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -5, y: 64}
-        - {x: -17, y: 48}
-        - {x: -17, y: 0}
-        - {x: -15, y: -2}
+      - - {x: 2, y: 64}
+        - {x: -2, y: 64}
+        - {x: -13, y: 58}
+        - {x: -17, y: 31}
+        - {x: -17, y: -2}
         - {x: 18, y: -2}
-        - {x: 18, y: 54}
-        - {x: 5, y: 64}
+        - {x: 18, y: 49}
+        - {x: 7, y: 61}
     - name: CH_Wepom02
       rect:
         serializedVersion: 2
@@ -428,12 +418,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 8, y: -3}
-        - {x: 13, y: 5}
-        - {x: 13, y: 64}
-        - {x: -3, y: 64}
-        - {x: -8, y: 62}
-        - {x: -8, y: -3}
+      - - {x: 12, y: 64}
+        - {x: -2, y: 64}
+        - {x: -9, y: 59}
+        - {x: -9, y: -2}
+        - {x: -5, y: -3}
+        - {x: 5, y: -3}
+        - {x: 6, y: 0}
+        - {x: 13, y: 39}
+        - {x: 13, y: 60}
     - name: CH_Shadow
       rect:
         serializedVersion: 2
@@ -445,12 +438,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -59, y: 28}
-        - {x: -64, y: 22}
-        - {x: -64, y: -24}
-        - {x: -47, y: -28}
-        - {x: 64, y: -28}
-        - {x: 64, y: 12}
+      - - {x: -54, y: 28}
+        - {x: -61, y: 27}
+        - {x: -64, y: 23}
+        - {x: -64, y: -17}
+        - {x: -62, y: -25}
+        - {x: -52, y: -28}
+        - {x: 49, y: -28}
+        - {x: 64, y: -12}
+        - {x: 64, y: 15}
         - {x: 49, y: 28}
     - name: CH_Hair03
       rect:
@@ -463,13 +459,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -33, y: 58}
-        - {x: -48, y: 43}
+      - - {x: -43, y: 58}
+        - {x: -53, y: 46}
         - {x: -57, y: 32}
         - {x: -57, y: -20}
-        - {x: 54, y: -20}
-        - {x: 54, y: 51}
-        - {x: 26, y: 58}
+        - {x: 49, y: -20}
+        - {x: 54, y: -17}
+        - {x: 54, y: 54}
+        - {x: 37, y: 58}
     - name: CH_Body03
       rect:
         serializedVersion: 2
@@ -481,16 +478,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 15, y: 46}
-        - {x: -19, y: 46}
-        - {x: -22, y: 45}
-        - {x: -26, y: 27}
-        - {x: -26, y: -36}
-        - {x: -10, y: -45}
+      - - {x: -13, y: 46}
+        - {x: -26, y: 34}
+        - {x: -26, y: -34}
+        - {x: -21, y: -45}
         - {x: 21, y: -45}
-        - {x: 30, y: -36}
-        - {x: 30, y: -5}
-        - {x: 20, y: 42}
+        - {x: 31, y: -37}
+        - {x: 31, y: -9}
+        - {x: 27, y: 33}
+        - {x: 15, y: 46}
     - name: CH_Leg03
       rect:
         serializedVersion: 2
@@ -502,15 +498,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -5, y: 11}
-        - {x: -14, y: 6}
-        - {x: -14, y: -13}
-        - {x: -9, y: -35}
-        - {x: -5, y: -40}
-        - {x: 13, y: -40}
-        - {x: 15, y: -19}
+      - - {x: -10, y: 11}
+        - {x: -14, y: 9}
+        - {x: -14, y: -20}
+        - {x: -4, y: -40}
+        - {x: 12, y: -40}
+        - {x: 15, y: -35}
         - {x: 15, y: 6}
-        - {x: 10, y: 11}
+        - {x: 13, y: 11}
     - name: CH_ButtomArm03
       rect:
         serializedVersion: 2
@@ -522,16 +517,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 3, y: 8}
-        - {x: -9, y: 8}
+      - - {x: -9, y: 8}
         - {x: -10, y: 7}
-        - {x: -10, y: -34}
-        - {x: -5, y: -41}
-        - {x: 23, y: -41}
-        - {x: 25, y: -39}
-        - {x: 29, y: -29}
-        - {x: 29, y: -14}
-        - {x: 18, y: 0}
+        - {x: -10, y: -41}
+        - {x: 16, y: -41}
+        - {x: 29, y: -36}
+        - {x: 29, y: -4}
+        - {x: 6, y: 8}
     - name: CH_Eye03
       rect:
         serializedVersion: 2
@@ -543,22 +535,19 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -5, y: -1}
+      - - {x: -6, y: -1}
         - {x: -10, y: -2}
         - {x: -10, y: -26}
-        - {x: -8, y: -33}
+        - {x: -5, y: -33}
         - {x: 5, y: -33}
-        - {x: 9, y: -30}
-        - {x: 16, y: -9}
-        - {x: 16, y: -2}
-        - {x: 14, y: -1}
+        - {x: 16, y: -12}
+        - {x: 16, y: -1}
       - - {x: -41, y: 1}
-        - {x: -41, y: -28}
+        - {x: -41, y: -29}
         - {x: -37, y: -32}
-        - {x: -24, y: -32}
-        - {x: -17, y: -17}
-        - {x: -17, y: -1}
-        - {x: -20, y: 1}
+        - {x: -29, y: -32}
+        - {x: -17, y: -28}
+        - {x: -17, y: 1}
     - name: CH_Eye04
       rect:
         serializedVersion: 2
@@ -570,13 +559,17 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -45, y: 4}
-        - {x: -45, y: -29}
-        - {x: -43, y: -33}
-        - {x: 13, y: -33}
-        - {x: 15, y: -28}
-        - {x: 15, y: 2}
-        - {x: 13, y: 4}
+      - - {x: -3, y: 5}
+        - {x: -10, y: 0}
+        - {x: -25, y: 5}
+        - {x: -35, y: 5}
+        - {x: -45, y: 0}
+        - {x: -45, y: -26}
+        - {x: -43, y: -34}
+        - {x: 12, y: -34}
+        - {x: 15, y: -33}
+        - {x: 15, y: -4}
+        - {x: 6, y: 5}
     - name: CH_Hair04
       rect:
         serializedVersion: 2
@@ -588,19 +581,16 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -30, y: 62}
-        - {x: -36, y: 59}
-        - {x: -48, y: 39}
-        - {x: -55, y: 18}
-        - {x: -57, y: -9}
-        - {x: -57, y: -57}
-        - {x: -34, y: -60}
-        - {x: -20, y: -52}
-        - {x: -4, y: -62}
-        - {x: 29, y: -62}
-        - {x: 56, y: -54}
-        - {x: 56, y: 42}
-        - {x: 33, y: 62}
+      - - {x: -49, y: 62}
+        - {x: -57, y: 34}
+        - {x: -57, y: -62}
+        - {x: -45, y: -62}
+        - {x: -16, y: -54}
+        - {x: -6, y: -62}
+        - {x: 25, y: -62}
+        - {x: 56, y: -48}
+        - {x: 56, y: 24}
+        - {x: 42, y: 62}
     - name: CH_Hair05
       rect:
         serializedVersion: 2
@@ -612,31 +602,31 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -47, y: 31}
-        - {x: -47, y: -13}
-        - {x: -39, y: -13}
-        - {x: -34, y: 3}
-        - {x: -34, y: 24}
-        - {x: -37, y: 31}
-      - - {x: 42, y: 31}
-        - {x: 35, y: 36}
-        - {x: 21, y: 36}
-        - {x: 13, y: 27}
-        - {x: 13, y: -1}
-        - {x: 15, y: -11}
-        - {x: 22, y: -13}
-        - {x: 46, y: -13}
-        - {x: 46, y: 17}
-      - - {x: -9, y: 58}
-        - {x: -25, y: 58}
-        - {x: -29, y: 54}
-        - {x: -29, y: 36}
-        - {x: -27, y: 28}
-        - {x: -7, y: 28}
-        - {x: 19, y: 40}
-        - {x: 21, y: 44}
+      - - {x: -37, y: 31}
+        - {x: -46, y: 31}
+        - {x: -47, y: 22}
+        - {x: -47, y: -10}
+        - {x: -44, y: -14}
+        - {x: -42, y: -14}
+        - {x: -38, y: -10}
+        - {x: -34, y: 9}
+        - {x: -34, y: 18}
+      - - {x: 26, y: 36}
+        - {x: 13, y: 29}
+        - {x: 13, y: 13}
+        - {x: 21, y: -14}
+        - {x: 47, y: -14}
+        - {x: 47, y: 16}
+        - {x: 36, y: 36}
+      - - {x: -29, y: 33}
+        - {x: -21, y: 27}
+        - {x: -12, y: 27}
+        - {x: 21, y: 40}
         - {x: 21, y: 51}
-        - {x: 10, y: 57}
+        - {x: 20, y: 56}
+        - {x: -10, y: 59}
+        - {x: -24, y: 59}
+        - {x: -29, y: 53}
     - name: CH_Hair06
       rect:
         serializedVersion: 2
@@ -648,14 +638,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -10, y: 62}
-        - {x: -42, y: 55}
-        - {x: -56, y: 44}
-        - {x: -56, y: -28}
-        - {x: -54, y: -32}
-        - {x: 64, y: -32}
-        - {x: 64, y: 48}
-        - {x: 51, y: 62}
+      - - {x: 2, y: 62}
+        - {x: -35, y: 59}
+        - {x: -56, y: 28}
+        - {x: -56, y: -32}
+        - {x: 49, y: -32}
+        - {x: 64, y: -12}
+        - {x: 64, y: 46}
+        - {x: 48, y: 62}
     - name: CH_Body04
       rect:
         serializedVersion: 2
@@ -668,14 +658,14 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -13, y: 46}
-        - {x: -18, y: 41}
-        - {x: -26, y: 17}
-        - {x: -26, y: -36}
-        - {x: -5, y: -45}
-        - {x: 7, y: -45}
-        - {x: 30, y: -39}
-        - {x: 30, y: 41}
-        - {x: 18, y: 46}
+        - {x: -26, y: 34}
+        - {x: -26, y: -34}
+        - {x: -21, y: -45}
+        - {x: 21, y: -45}
+        - {x: 31, y: -37}
+        - {x: 31, y: -9}
+        - {x: 27, y: 33}
+        - {x: 15, y: 46}
     - name: CH_Body05
       rect:
         serializedVersion: 2
@@ -687,16 +677,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 19, y: 46}
-        - {x: -19, y: 46}
-        - {x: -26, y: 21}
-        - {x: -26, y: -34}
-        - {x: -9, y: -45}
-        - {x: 8, y: -45}
-        - {x: 19, y: -42}
-        - {x: 30, y: -31}
-        - {x: 30, y: -3}
-        - {x: 25, y: 45}
+      - - {x: -19, y: 46}
+        - {x: -27, y: 39}
+        - {x: -27, y: -32}
+        - {x: -12, y: -45}
+        - {x: 20, y: -45}
+        - {x: 31, y: -37}
+        - {x: 31, y: 24}
+        - {x: 23, y: 46}
     - name: CH_Body06
       rect:
         serializedVersion: 2
@@ -708,16 +696,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 13, y: 46}
-        - {x: -10, y: 46}
-        - {x: -21, y: 43}
-        - {x: -31, y: 1}
-        - {x: -31, y: -47}
-        - {x: -19, y: -51}
-        - {x: 26, y: -51}
-        - {x: 35, y: -41}
-        - {x: 35, y: -26}
-        - {x: 18, y: 41}
+      - - {x: -31, y: -51}
+        - {x: 24, y: -51}
+        - {x: 35, y: -48}
+        - {x: 35, y: 1}
+        - {x: 18, y: 46}
+        - {x: -21, y: 46}
+        - {x: -31, y: 2}
     - name: CH_Leg04
       rect:
         serializedVersion: 2
@@ -729,15 +714,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -5, y: 11}
-        - {x: -14, y: 6}
-        - {x: -14, y: -13}
-        - {x: -9, y: -35}
-        - {x: -5, y: -40}
-        - {x: 13, y: -40}
-        - {x: 15, y: -19}
+      - - {x: -10, y: 11}
+        - {x: -14, y: 9}
+        - {x: -14, y: -20}
+        - {x: -4, y: -40}
+        - {x: 12, y: -40}
+        - {x: 15, y: -35}
         - {x: 15, y: 6}
-        - {x: 10, y: 11}
+        - {x: 13, y: 11}
     - name: CH_Leg05
       rect:
         serializedVersion: 2
@@ -749,14 +733,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -17, y: -37}
-        - {x: -8, y: -40}
-        - {x: 8, y: -40}
-        - {x: 21, y: -34}
-        - {x: 21, y: -8}
-        - {x: 16, y: 11}
-        - {x: -9, y: 11}
-        - {x: -17, y: 6}
+      - - {x: -17, y: -34}
+        - {x: -12, y: -40}
+        - {x: 17, y: -40}
+        - {x: 21, y: -38}
+        - {x: 21, y: 4}
+        - {x: 19, y: 11}
+        - {x: -17, y: 11}
     - name: CH_Leg06
       rect:
         serializedVersion: 2
@@ -768,15 +751,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -5, y: 11}
-        - {x: -14, y: 6}
-        - {x: -14, y: -13}
-        - {x: -9, y: -35}
-        - {x: -5, y: -40}
-        - {x: 13, y: -40}
-        - {x: 15, y: -19}
+      - - {x: -10, y: 11}
+        - {x: -14, y: 9}
+        - {x: -14, y: -20}
+        - {x: -4, y: -40}
+        - {x: 12, y: -40}
+        - {x: 15, y: -35}
         - {x: 15, y: 6}
-        - {x: 10, y: 11}
+        - {x: 13, y: 11}
     - name: CH_UpperArm03
       rect:
         serializedVersion: 2
@@ -788,14 +770,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -5, y: 6}
+      - - {x: -2, y: 6}
         - {x: -6, y: 4}
-        - {x: -6, y: -5}
-        - {x: 3, y: -20}
-        - {x: 10, y: -20}
-        - {x: 15, y: -18}
-        - {x: 15, y: 0}
-        - {x: 5, y: 6}
+        - {x: -6, y: -6}
+        - {x: 2, y: -20}
+        - {x: 11, y: -20}
+        - {x: 15, y: -19}
+        - {x: 15, y: -4}
+        - {x: 7, y: 6}
     - name: CH_UpperArm04
       rect:
         serializedVersion: 2
@@ -807,14 +789,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -5, y: 6}
+      - - {x: -2, y: 6}
         - {x: -6, y: 4}
-        - {x: -6, y: -5}
-        - {x: 3, y: -20}
-        - {x: 10, y: -20}
-        - {x: 15, y: -18}
-        - {x: 15, y: 0}
-        - {x: 5, y: 6}
+        - {x: -6, y: -6}
+        - {x: 2, y: -20}
+        - {x: 11, y: -20}
+        - {x: 15, y: -19}
+        - {x: 15, y: -4}
+        - {x: 7, y: 6}
     - name: CH_UpperArm05
       rect:
         serializedVersion: 2
@@ -826,14 +808,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 4, y: 7}
-        - {x: -3, y: 7}
-        - {x: -8, y: 4}
-        - {x: -8, y: -12}
-        - {x: -7, y: -20}
-        - {x: 11, y: -20}
+      - - {x: 5, y: 7}
+        - {x: -5, y: 7}
+        - {x: -8, y: 1}
+        - {x: -8, y: -19}
+        - {x: -3, y: -20}
+        - {x: 13, y: -20}
         - {x: 15, y: -17}
-        - {x: 15, y: -4}
+        - {x: 15, y: 2}
     - name: CH_ButtomArm04
       rect:
         serializedVersion: 2
@@ -845,13 +827,17 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -8, y: 8}
-        - {x: -8, y: -19}
-        - {x: -5, y: -31}
-        - {x: 15, y: -31}
-        - {x: 19, y: -24}
-        - {x: 19, y: -3}
-        - {x: 5, y: 8}
+      - - {x: 1, y: 8}
+        - {x: -5, y: 8}
+        - {x: -8, y: 4}
+        - {x: -8, y: -13}
+        - {x: -6, y: -27}
+        - {x: -1, y: -31}
+        - {x: 13, y: -31}
+        - {x: 19, y: -29}
+        - {x: 20, y: -23}
+        - {x: 20, y: -9}
+        - {x: 4, y: 7}
     - name: CH_ButtomArm05
       rect:
         serializedVersion: 2
@@ -863,12 +849,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -9, y: 8}
-        - {x: -9, y: -24}
-        - {x: -3, y: -31}
-        - {x: 13, y: -31}
-        - {x: 19, y: -28}
-        - {x: 19, y: -5}
+      - - {x: -5, y: 8}
+        - {x: -9, y: 3}
+        - {x: -9, y: -22}
+        - {x: 0, y: -31}
+        - {x: 12, y: -31}
+        - {x: 20, y: -24}
+        - {x: 20, y: -11}
         - {x: 4, y: 8}
     - name: CH_Wepom03
       rect:
@@ -881,12 +868,16 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -15, y: -8}
-        - {x: 9, y: -8}
-        - {x: 9, y: 53}
-        - {x: 6, y: 63}
-        - {x: -12, y: 63}
-        - {x: -15, y: 36}
+      - - {x: -2, y: 64}
+        - {x: -12, y: 57}
+        - {x: -15, y: 22}
+        - {x: -15, y: -6}
+        - {x: -9, y: -8}
+        - {x: 4, y: -8}
+        - {x: 9, y: -7}
+        - {x: 9, y: -1}
+        - {x: 6, y: 60}
+        - {x: 3, y: 64}
     - name: CH_Wepom04
       rect:
         serializedVersion: 2
@@ -899,12 +890,14 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -6, y: 64}
-        - {x: -16, y: 42}
-        - {x: -16, y: 22}
+        - {x: -16, y: 51}
+        - {x: -16, y: 9}
         - {x: -9, y: -5}
-        - {x: 4, y: -5}
-        - {x: 11, y: 6}
-        - {x: 11, y: 64}
+        - {x: 6, y: -5}
+        - {x: 7, y: -4}
+        - {x: 11, y: 39}
+        - {x: 11, y: 61}
+        - {x: 9, y: 64}
     - name: CH_Wepom05
       rect:
         serializedVersion: 2
@@ -916,14 +909,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -18, y: 64}
-        - {x: -20, y: 52}
-        - {x: -20, y: 18}
+      - - {x: -10, y: 64}
+        - {x: -21, y: 44}
+        - {x: -21, y: 10}
         - {x: -6, y: -4}
-        - {x: 6, y: -4}
-        - {x: 21, y: 21}
-        - {x: 21, y: 47}
-        - {x: 14, y: 64}
+        - {x: 9, y: -4}
+        - {x: 21, y: 25}
+        - {x: 21, y: 45}
+        - {x: 3, y: 64}
     - name: CH_Hair07
       rect:
         serializedVersion: 2
@@ -935,15 +928,16 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -14, y: 59}
-        - {x: -55, y: 53}
-        - {x: -64, y: 43}
-        - {x: -64, y: 11}
-        - {x: -63, y: 7}
-        - {x: 8, y: -15}
+      - - {x: 29, y: 59}
+        - {x: -16, y: 59}
+        - {x: -64, y: 49}
+        - {x: -64, y: 21}
+        - {x: -62, y: 15}
+        - {x: -56, y: 7}
+        - {x: -5, y: -15}
         - {x: 51, y: -15}
-        - {x: 51, y: 50}
-        - {x: 35, y: 59}
+        - {x: 51, y: 17}
+        - {x: 44, y: 53}
     - name: CH_Hair08
       rect:
         serializedVersion: 2
@@ -955,12 +949,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -44, y: 56}
-        - {x: -64, y: 46}
-        - {x: -64, y: -37}
-        - {x: 64, y: -37}
-        - {x: 64, y: 46}
-        - {x: 51, y: 56}
+      - - {x: -64, y: -36}
+        - {x: -46, y: -36}
+        - {x: -27, y: -38}
+        - {x: 64, y: -38}
+        - {x: 64, y: 9}
+        - {x: 62, y: 40}
+        - {x: 43, y: 56}
+        - {x: -43, y: 56}
+        - {x: -64, y: 47}
     - name: CH_Hair09
       rect:
         serializedVersion: 2
@@ -972,14 +969,112 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -19, y: 64}
-        - {x: -30, y: 64}
-        - {x: -55, y: 37}
-        - {x: -55, y: -35}
-        - {x: 38, y: -35}
-        - {x: 56, y: -16}
-        - {x: 56, y: 28}
-        - {x: 36, y: 55}
+      - - {x: -35, y: 64}
+        - {x: -55, y: 41}
+        - {x: -55, y: -17}
+        - {x: -47, y: -20}
+        - {x: -38, y: -18}
+        - {x: -5, y: -36}
+        - {x: 53, y: -36}
+        - {x: 56, y: -34}
+        - {x: 56, y: 35}
+        - {x: 39, y: 64}
+    - name: BG_prop1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 17
+        width: 78
+        height: 95
+      alignment: 9
+      pivot: {x: 0.55147487, y: 0.045669656}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -36.015045, y: 90.661385}
+        - {x: -43.015045, y: 86.661385}
+        - {x: -43.015045, y: -1.3386154}
+        - {x: -36.015045, y: -4.3386154}
+        - {x: 33.984955, y: -4.3386154}
+        - {x: 34.984955, y: 1.6613846}
+        - {x: 34.984955, y: 47.661385}
+        - {x: 18.984955, y: 90.661385}
+    - name: BG_prop2
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 19
+        width: 95
+        height: 65
+      alignment: 9
+      pivot: {x: 0.51584876, y: 0.15254672}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9.0056305, y: 55.084465}
+        - {x: -49.00563, y: 40.084465}
+        - {x: -49.00563, y: -8.915537}
+        - {x: -44.00563, y: -9.915537}
+        - {x: 36.99437, y: -9.915537}
+        - {x: 45.99437, y: -3.9155369}
+        - {x: 45.99437, y: 46.084465}
+        - {x: 36.99437, y: 55.084465}
+    - name: BG_prop3
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 16
+        width: 111
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5090431, y: 0.047220644}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -47.503784, y: 87.6557}
+        - {x: -56.503784, y: 57.6557}
+        - {x: -56.503784, y: 23.6557}
+        - {x: -28.503784, y: -4.3442993}
+        - {x: 20.496216, y: -4.3442993}
+        - {x: 54.496216, y: 17.6557}
+        - {x: 54.496216, y: 87.6557}
+    - name: BG_prop4
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 8
+        width: 166
+        height: 119
+      alignment: 9
+      pivot: {x: 0.48587, y: 0.04664866}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -73.65442, y: 113.44881}
+        - {x: -80.65442, y: 105.44881}
+        - {x: -80.65442, y: -0.5511894}
+        - {x: -74.65442, y: -5.5511894}
+        - {x: 61.34558, y: -5.5511894}
+        - {x: 85.34558, y: -4.5511894}
+        - {x: 85.34558, y: 91.44881}
+        - {x: 65.34558, y: 113.44881}
+    - name: BG_prop5
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 16
+        width: 179
+        height: 232
+      alignment: 9
+      pivot: {x: 0.5524159, y: 0.029868316}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20.117554, y: 225.07056}
+        - {x: -20.882446, y: 225.07056}
+        - {x: -39.882446, y: 219.07056}
+        - {x: -98.88245, y: 176.07056}
+        - {x: -98.88245, y: 56.07055}
+        - {x: -47.882446, y: -6.929451}
+        - {x: 14.117554, y: -6.929451}
+        - {x: 29.117554, y: -1.929451}
+        - {x: 80.11755, y: 61.07055}
+        - {x: 80.11755, y: 206.07056}
     outline: []
   spritePackingTag: 
   userData: 
