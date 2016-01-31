@@ -25,6 +25,9 @@ public class StrikeInputUtility : MonoBehaviour {
 
 	MahojinController[] mahojinControllers;
 
+	bool isHuman;
+	bool akumaMode;
+
 	// Use this for initialization
 	void Start () {
 		time = 0;
@@ -37,6 +40,9 @@ public class StrikeInputUtility : MonoBehaviour {
 		for (int i = 0; i < mahojinControllers.Length; i++) {
 			mahojinControllers [i] = GameObject.Find ("mahojin" + i).GetComponent<MahojinController>();
 		}
+
+		isHuman = GameManager.GetInstance ().myInfo.isHuman;
+		akumaMode = false;
 	}
 
 	void Update() {
@@ -52,8 +58,21 @@ public class StrikeInputUtility : MonoBehaviour {
 					mahojinController = null;
 				}
 			} else  {
-				mahojinController.AddGauge((int)time);
+				if (akumaMode && (isHuman == false)) {
+					mahojinController.subGauge ((int)time * 2);
+				} else {
+					mahojinController.AddGauge((int)time * 2);
+				}
 			}
+		}
+	}
+
+
+	public void ChangeMode() {
+		if (akumaMode == true) {
+			akumaMode = false;
+		} else {
+			akumaMode = true;
 		}
 	}
 
@@ -62,7 +81,7 @@ public class StrikeInputUtility : MonoBehaviour {
     /// </summary>
     private void InputStrike()
     {
-		#if UNITY_EDITOR
+		#if UNITY_EDITOR || UNITY_STANDALONE_OSX || UNITY_STANDALONE
 		if (Input.GetMouseButtonDown(0)) {
 			startPosistion = Input.mousePosition;
 			onMouse = true;

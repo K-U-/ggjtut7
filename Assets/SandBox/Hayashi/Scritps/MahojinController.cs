@@ -18,7 +18,7 @@ public class MahojinController : MonoBehaviour {
 	private int  controlGauge;
 	// ゲージのマックス.
 	[SerializeField]
-	int maxGauge = 5;
+	int maxGauge = 30;
 	// 魔法陣が光る為のスクリプト.
 	private MagicCircleLight mCL;
 	// 音を鳴らすかどうかを決めるフラグ.
