@@ -442,7 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e81bd5a76bb1ad49aae7d16c5af9db6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  watetime: 2
+  wate: 3
 --- !u!4 &951616437
 Transform:
   m_ObjectHideFlags: 0

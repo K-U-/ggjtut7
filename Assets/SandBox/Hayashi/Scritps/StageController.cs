@@ -71,7 +71,7 @@ public class StageController : MonoBehaviour {
 			col = int.Parse (str [1]);
 			mahojinsPos = new Vector2[int.Parse (str [2])];
 		}
-			
+
 		panels = new int[row, col];
 		for (int x = 0; x < row; x++) {
 			for (int y = 0; y < col; y++) {
@@ -138,6 +138,7 @@ public class StageController : MonoBehaviour {
             {
 				// 名前をidにする.
                 obj.name = GameManager.GetInstance().ReadyStatusList.readyStatusList[characterIndex].info.id.ToString();
+                GameManager.GetInstance().InitializeCharacterController(obj.name, obj.GetComponent<Character_Controller>());
             }
             else
             {
@@ -181,5 +182,15 @@ public class StageController : MonoBehaviour {
 		}
 	}
 
-    
+    public static IEnumerator efect(GameObject obj, Animator anim, float watetime)
+    {
+        anim.SetBool("Damage", true);
+        obj.SetActive(false);
+
+        yield return new WaitForSeconds(watetime);
+        anim.SetBool("Damage", false);
+        obj.SetActive(true);
+    }
+
+
 }

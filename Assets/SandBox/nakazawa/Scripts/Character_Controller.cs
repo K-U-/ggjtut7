@@ -20,20 +20,24 @@ public class KillCommand
 [System.Serializable]
 public class SyncCommand
 {
+    public string target;
     public int x;
     public int z;
 }
 
 public class Character_Controller : MonoBehaviour{
 
+    
     StageController stage;
     public GameObject Effect;
     public Animator anim;
     public float watetime;
     public TextMesh textMesh;
+    KillTimeCommand killcmd;
 
     void Awake()
     {
+        killcmd = new KillTimeCommand();
         PhotonRPCHandler.moveEvent += MoveEvent;
         PhotonRPCHandler.killEvent += KillEvent;
         if (GameManager.GetInstance().myInfo.id.ToString() == gameObject.name)
@@ -144,7 +148,7 @@ public class Character_Controller : MonoBehaviour{
         if (command.target == gameObject.name)
         {
             Instantiate(Effect, transform.position, transform.rotation);
-            StartCoroutine(efect());
+            //StartCoroutine(efe);
             PhotonRPCModel tickermodel = new PhotonRPCModel();
             tickermodel.senderId = model.senderId;
             tickermodel.command = PhotonRPCCommand.ActionTickerEvent;
@@ -152,10 +156,19 @@ public class Character_Controller : MonoBehaviour{
             tickermodel.message = string.Format("{0}が{1}を KILL!", model.senderId, com.target);
             PhotonRPCHandler.GetInstance().PostRPC(tickermodel);
             //Destroy(gameObject);
+
+            
+            killcmd.target = gameObject.name;
+            //killcmd.anim = anim;
+            PhotonRPCModel mod = new PhotonRPCModel();
+            mod.senderId = model.senderId;
+            mod.command = PhotonRPCCommand.Kill;
+            mod.message = JsonUtility.ToJson(killcmd);
+            PhotonRPCHandler.GetInstance().PostRPC(mod);
         }
     }
 
-    IEnumerator efect() {
+    private IEnumerator efect() {
         anim.SetBool("Damage", true);
         yield return new WaitForSeconds(watetime);
         anim.SetBool("Damage", false);
@@ -164,6 +177,7 @@ public class Character_Controller : MonoBehaviour{
     private void StartSyncEvent(PhotonRPCModel model)
     {
         SyncCommand command = new SyncCommand();
+        command.target = gameObject.name.ToString();
         command.x = (int)transform.position.x;
         command.z = (int)transform.position.z;
         PhotonRPCModel rpcmodel = new PhotonRPCModel();
@@ -176,5 +190,10 @@ public class Character_Controller : MonoBehaviour{
     public void RepositionPlayer(SyncCommand command)
     {
         //TODO:内部実装は任せます。
+        Debug.Log("sync");
+        if (command.target == gameObject.name)
+        {
+            transform.position = new Vector3(command.x, 1f, command.z);
+        }
     }
 }
