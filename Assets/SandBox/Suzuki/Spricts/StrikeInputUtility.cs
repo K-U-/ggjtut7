@@ -68,12 +68,6 @@ public class StrikeInputUtility : MonoBehaviour {
 	}
 
 
-
-	void OnGUI() {
-		if(GameManager.GetInstance().myInfo.id.ToString() == gameObject.name)
-		GUI.TextArea (new Rect (0, 0, 100, 30), akumaMode.ToString());
-	}
-
 	public void ChangeMode() {
 		if (akumaMode == true) {
 			akumaMode = false;
