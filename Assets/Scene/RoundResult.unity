@@ -274,7 +274,6 @@ GameObject:
   - 222: {fileID: 283888854}
   - 114: {fileID: 283888853}
   - 114: {fileID: 283888852}
-  - 114: {fileID: 283888855}
   m_Layer: 5
   m_Name: Button_Titl
   m_TagString: Untagged
@@ -339,15 +338,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 283888855}
-        m_MethodName: SceneChange
-        m_Mode: 1
+      - m_Target: {fileID: 1156572451}
+        m_MethodName: Departure
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Title
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -385,18 +384,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 283888850}
---- !u!114 &283888855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 283888850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a592ace63118f1489dcf6a9b320a467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mSceneName: Title
 --- !u!1 &284603047
 GameObject:
   m_ObjectHideFlags: 0
@@ -1664,6 +1651,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 1156572450}
   - 114: {fileID: 1156572449}
+  - 114: {fileID: 1156572451}
   m_Layer: 0
   m_Name: LayerSet
   m_TagString: Untagged
@@ -1704,6 +1692,17 @@ RectTransform:
   m_AnchoredPosition: {x: 50, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1156572451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1156572448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab5873907f5d58429e32e77bc19d2ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1353578325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2609,7 +2608,6 @@ GameObject:
   - 222: {fileID: 1726074411}
   - 114: {fileID: 1726074410}
   - 114: {fileID: 1726074409}
-  - 114: {fileID: 1726074412}
   m_Layer: 5
   m_Name: Button_NextButtole
   m_TagString: Untagged
@@ -2674,15 +2672,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 283888855}
-        m_MethodName: SceneChange
-        m_Mode: 1
+      - m_Target: {fileID: 1156572451}
+        m_MethodName: Departure
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Field
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -2720,18 +2718,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1726074407}
---- !u!114 &1726074412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1726074407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a592ace63118f1489dcf6a9b320a467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mSceneName: Field
 --- !u!1 &1728010712
 GameObject:
   m_ObjectHideFlags: 0
