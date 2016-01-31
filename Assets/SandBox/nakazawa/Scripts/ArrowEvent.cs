@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
+public class KillTimeCommand
+{
+    public string target;
+}
+
 public class ArrowEvent : MonoBehaviour {
 
     MoveCommand sampleCommand;
@@ -8,13 +14,15 @@ public class ArrowEvent : MonoBehaviour {
     private string PlayerID;
     private bool killflag;
     private bool[] death;
-    public float watetime;
-
+    public static float watetime;
+    public float wate;
     void Awake()
     {
+        watetime = wate;
         sampleCommand = new MoveCommand();
         killcmd = new KillCommand();
         PlayerID = GameManager.GetInstance().myInfo.id.ToString();
+        PhotonRPCHandler.killtimeEvent += killtimeEvent;
         killflag = false;
         death = new bool[8];
         for (int i = 0; i < 8; i++) {
@@ -22,7 +30,11 @@ public class ArrowEvent : MonoBehaviour {
         }
     }
 
-    
+    void OnDestroy()
+    {
+        PhotonRPCHandler.killtimeEvent -= killtimeEvent;
+    }
+
     void move(string id, float x, float z) {
         if (death[int.Parse(id)] == false)
         {
@@ -63,6 +75,14 @@ public class ArrowEvent : MonoBehaviour {
         if (killflag == true) {
             Kill();
         }
+    }
+
+    public static IEnumerator Char_Con(GameObject obj) {
+        Debug.Log("delete");
+
+        obj.SetActive(false);
+        yield return new WaitForSeconds(watetime);
+        obj.SetActive(true);
     }
 
     #region Killに関する処理
@@ -119,7 +139,7 @@ public class ArrowEvent : MonoBehaviour {
                 model.message = JsonUtility.ToJson(killcmd);
                 PhotonRPCHandler.GetInstance().PostRPC(model);
 
-                StartCoroutine(respawn(hit.collider.gameObject));
+                //StartCoroutine(respawn(hit.collider.gameObject));
                 killflag = false;
             }
         }
@@ -135,8 +155,19 @@ public class ArrowEvent : MonoBehaviour {
 
     IEnumerator respawn(GameObject hit) {
         death[int.Parse(hit.name)] = true;
+        hit.GetComponent<Renderer>().enabled = false;
+        //hit.SetActive(false);
         yield return new WaitForSeconds(watetime);
         death[int.Parse(hit.name)] = false;
+        hit.GetComponent<Renderer>().enabled = true;
+        //hit.SetActive(true);
+    }
+
+    private void killtimeEvent(PhotonRPCModel model)
+    {
+        Debug.Log("killtime");
+        KillTimeCommand command = JsonUtility.FromJson<KillTimeCommand>(model.message);
+        StartCoroutine(Char_Con(GameObject.Find(command.target)));
     }
     #endregion
 }
