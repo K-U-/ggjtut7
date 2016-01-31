@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class FieldUIController : MonoBehaviour {
@@ -8,6 +9,7 @@ public class FieldUIController : MonoBehaviour {
     public GameObject tickerObject;
     public GameObject[] controller;
     public Transform tickerParent;
+    public Text remainTime;
 
     void Awake()
     {
@@ -33,6 +35,13 @@ public class FieldUIController : MonoBehaviour {
         {
             PhotonRPCHandler.actionTickerEvent += DummyActionTicker;
         }
+    }
+
+    public void InitializeTime(float time)
+    {
+        int minute = ((int) (time / 60f));
+        int seconds = (int)time - (minute * 60);
+        remainTime.text = minute + ":" + seconds;  
     }
 
     void OnDestroy()

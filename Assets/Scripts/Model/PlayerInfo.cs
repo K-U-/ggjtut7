@@ -9,4 +9,5 @@ public class PlayerInfo {
     public bool isHost;
     public bool isSpector;
     public bool isHuman;
+    public int point;
 }

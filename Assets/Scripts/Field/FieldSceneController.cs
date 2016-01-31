@@ -4,12 +4,14 @@ using System.Collections;
 public class FieldSceneController : MonoBehaviour {
 
     public float gameRemainTime = 180f;
-    private bool startedGame = false;
+    private bool startedGame = true;
+    public FieldUIController uiController;
     void Update()
     {
         if (startedGame)
         {
             gameRemainTime -= Time.deltaTime;
+            uiController.InitializeTime(gameRemainTime);
         }
     }
 

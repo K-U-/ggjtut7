@@ -64,6 +64,18 @@ public class GameManager : Photon.MonoBehaviour {
         }
     }
 
+    public void ClearCharacterDictionary()
+    {
+        characterDictionary.Clear();
+    }
+    public void AddCharacterController(string id, Character_Controller controller)
+    {
+        characterDictionary.Add(id, controller);
+    }
+    public Character_Controller GetCharacterControllerById(string id)
+    {
+        return characterDictionary[id];
+    }
     public void InitializePlayerInfo(string name)
     {
         myInfo.name = name;
