@@ -14,6 +14,7 @@ public class ReadyCommand
 
 public class GameManager : Photon.MonoBehaviour {
 
+    public int roundCount = 3;
     public string roomName;
     private PlayerReadyStatusList readyStatusList;
     public PlayerReadyStatusList ReadyStatusList {
@@ -43,6 +44,7 @@ public class GameManager : Photon.MonoBehaviour {
     {
         PhotonRPCHandler.joinEvent += JoinUser;
         PhotonRPCHandler.updateReadyEvent += UpdateReadyList;
+        PhotonRPCHandler.timeOverEvent += OnTimeOver;
     }
 
     public void AttachInGameEvent()
@@ -136,6 +138,25 @@ public class GameManager : Photon.MonoBehaviour {
             {
                 GameManager.GetInstance().myInfo.isHuman = prof.info.isHuman;
             }
+        }
+    }
+
+    /// <summary>
+    /// 時間切れで次に遷移するかもしれない
+    /// </summary>
+    /// <param name="model"></param>
+    public void OnTimeOver(PhotonRPCModel model)
+    {
+        LoadScene("Field");
+        roundCount--;
+
+        if (roundCount == 0)
+        {
+            //最終リザルト
+        }
+        else
+        {
+            //ラウンドリザルト
         }
     }
 
