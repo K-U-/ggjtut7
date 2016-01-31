@@ -9,8 +9,6 @@ public class StrikeInputUtility : MonoBehaviour {
     private float mSpeed = 3;
     [SerializeField]
     private float mTime;
-	[SerializeField]
-    private Text mUIText;
 
 	private Vector2 startPosistion;
 	private Vector2 endPosition;
@@ -45,7 +43,7 @@ public class StrikeInputUtility : MonoBehaviour {
 		InputStrike ();
 
 		Vector2 myPosition = new Vector2 (this.transform.position.x, this.transform.position.z);
-		MahojinController mahojinController;
+		MahojinController mahojinController = null;
 		for (int i = 0; i < mahoujinsPositions.Length; i++) {
 			if (mahojinController == null) {
 				if (Vector2.Distance (myPosition, mahoujinsPositions [i]) < 1) {
@@ -72,7 +70,6 @@ public class StrikeInputUtility : MonoBehaviour {
 			time = 0;
 		}
 		if (Input.GetMouseButtonUp(0)) {
-			// endPosition = Input.mousePosition;
 			onMouse = false;
 			isScratch = false;
 		}
@@ -90,9 +87,6 @@ public class StrikeInputUtility : MonoBehaviour {
 			isScratch = false;
 		}
 
-		Debug.Log(time);
-		// Debug.Log(Vector2.Distance(startPosistion, endPosition));
-
 		#else
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
@@ -108,17 +102,13 @@ public class StrikeInputUtility : MonoBehaviour {
 		endPosition= Input.mousePosition;
 	}
 
-	void OnMouseDrag() {
-		Debug.Log ("OnmouseDrag");
-	}
-
     /// <summary>
     /// 1以上かの検知
     /// </summary>
     /// <returns></returns>
     private bool IsMax()
     {
-        // if (1 <= mTime) return true ;
+        if (1 <= mTime) return true ;
         return false;
     }
 
@@ -131,10 +121,6 @@ public class StrikeInputUtility : MonoBehaviour {
         return mTime;
     }
 
-    private void UpdateTargetMagicUpdate()
-    {
-        // mUIText.text = mTime.ToString("F2");
-    }
     private void Reset()
     {
         mTime = 0.0f;
