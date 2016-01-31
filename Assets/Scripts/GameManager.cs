@@ -176,16 +176,18 @@ public class GameManager : Photon.MonoBehaviour {
     /// <param name="model"></param>
     public void OnTimeOver(PhotonRPCModel model)
     {
-        LoadScene("Field");
+        //LoadScene("Field");
         roundCount--;
 
         if (roundCount == 0)
         {
             //最終リザルト
+            SceneManager.LoadScene("Result");
         }
         else
         {
             //ラウンドリザルト
+            SceneManager.LoadScene("RoundResult");
         }
     }
 
