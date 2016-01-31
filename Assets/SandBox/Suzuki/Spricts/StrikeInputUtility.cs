@@ -64,7 +64,7 @@ public class StrikeInputUtility : MonoBehaviour {
 					mahojinController.AddGauge((int)time * 2);
 				}
 			}
-		}
+	}	
 	}
 
 

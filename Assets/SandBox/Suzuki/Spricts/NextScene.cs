@@ -24,7 +24,7 @@ public class NextScene : MonoBehaviour {
             PhotonRPCModel model = new PhotonRPCModel();
             model.senderId = GameManager.GetInstance().myInfo.id.ToString();
             model.command = PhotonRPCCommand.Departure;
-            model.message = "";
+            model.message = mSceneName;
             PhotonRPCHandler.GetInstance().PostRPC(model);
         }
 
