@@ -8,4 +8,6 @@ public class PlayerInfo {
     public string hash;
     public bool isHost;
     public bool isSpector;
+    public bool isHuman;
+    public int point;
 }

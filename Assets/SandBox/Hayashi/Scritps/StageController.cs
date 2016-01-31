@@ -130,6 +130,7 @@ public class StageController : MonoBehaviour {
 		// キャラクターの生成位置を引っ張ってくる.
 		stringReader = new StringReader (textAssets [playerNum].GetComponent<StageData> ().playerStartPos.text);
 		int characterIndex = 0;
+        GameManager.GetInstance().ClearCharacterDictionary();
 		while (stringReader.Peek () > -1) {
 			str = stringReader.ReadLine ().Split (',');
 			GameObject obj = (GameObject)Instantiate (characterPrefab);
@@ -138,6 +139,7 @@ public class StageController : MonoBehaviour {
             {
 				// 名前をidにする.
                 obj.name = GameManager.GetInstance().ReadyStatusList.readyStatusList[characterIndex].info.id.ToString();
+                GameManager.GetInstance().AddCharacterController(obj.name, obj.GetComponent<Character_Controller>());
             }
             else
             {
@@ -146,6 +148,9 @@ public class StageController : MonoBehaviour {
 			characterIndex++;
 			CharacterEnter (int.Parse (str [0]), int.Parse (str [1]));
 		}
+
+		// 全部終わったら、追従先を見つける.
+		Camera.main.GetComponent<CameraController> ().enabled = true;
 	}
 
 //	void ChangeCostume(string id, CharactorCos charactorCos) {

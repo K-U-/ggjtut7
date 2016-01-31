@@ -125,6 +125,12 @@ public class Character_Controller : MonoBehaviour{
         {
             Instantiate(Effect, transform.position, transform.rotation);
             StartCoroutine(efect());
+            PhotonRPCModel tickermodel = new PhotonRPCModel();
+            tickermodel.senderId = model.senderId;
+            tickermodel.command = PhotonRPCCommand.ActionTickerEvent;
+            KillCommand com = JsonUtility.FromJson<KillCommand>(model.message);
+            tickermodel.message = string.Format("{0}が{1}を KILL!", model.senderId, com.target);
+            PhotonRPCHandler.GetInstance().PostRPC(tickermodel);
             //Destroy(gameObject);
         }
     }
@@ -149,6 +155,7 @@ public class Character_Controller : MonoBehaviour{
 
     public void RepositionPlayer(SyncCommand command)
     {
-        //TODO:内部実装は任せます。
+        stage.CharacterExit((int)this.transform.position.x, (int)this.transform.position.z);
+        this.transform.position = new Vector3((float)command.x, 1f, (float)command.z);
     }
 }
