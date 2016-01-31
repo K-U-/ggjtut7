@@ -37,6 +37,13 @@ public class FieldUIController : MonoBehaviour {
         }
     }
 
+	public void OnClickAkumabutton(){
+		var input = GameManager.GetInstance ().GetCharacterControllerById (
+			GameManager.GetInstance ().myInfo.id.ToString()).GetComponent<StrikeInputUtility> ();
+
+		input.ChangeMode ();
+	}
+
     public void InitializeTime(float time)
     {
         int minute = ((int) (time / 60f));
@@ -68,4 +75,6 @@ public class FieldUIController : MonoBehaviour {
     {
         return;
     }
+		
+
 }
