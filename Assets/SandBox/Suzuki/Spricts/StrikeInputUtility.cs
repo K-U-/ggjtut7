@@ -94,7 +94,6 @@ public class StrikeInputUtility : MonoBehaviour {
             float d = Vector2.Distance(touchDeltaPosition, Input.GetTouch(0).position);
             mTime += Input.GetTouch(0).deltaTime * mSpeed;
         }
-        UpdateTargetMagicUpdate();
 		#endif
     }
 
