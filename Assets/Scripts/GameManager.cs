@@ -15,6 +15,18 @@ public class ReadyCommand
 
 public class GameManager : Photon.MonoBehaviour {
 
+
+    public const int WinHumanPoint = 800;
+    public const int KillDevilPoint = 200;
+    public const int KillHumanPoint = -200;
+    public const int HumanKilledPoint = -100;
+    public const int PerPrayPoint = 10;
+    public const int CompletePrayPoint = 150;
+    public const int WinDevilPoint = 800;
+    public const int PerRevPrayPoint = 30;
+    public const int PerDevilPrayPoint = -10;
+    public const int DevilKilledPoint = -200;
+
     public int roundCount = 3;
     public string roomName;
     public Image mask;

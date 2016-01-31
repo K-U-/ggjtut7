@@ -130,9 +130,53 @@ public class Character_Controller : MonoBehaviour{
             tickermodel.command = PhotonRPCCommand.ActionTickerEvent;
             KillCommand com = JsonUtility.FromJson<KillCommand>(model.message);
             tickermodel.message = string.Format("{0}が{1}を KILL!", model.senderId, com.target);
+
+            PlayerInfo killer = null;
+            PlayerInfo victim = null;
+            foreach (var obj in GameManager.GetInstance().ReadyStatusList.readyStatusList)
+            {
+                if (obj.info.id.ToString() == model.senderId)
+                {
+                    killer = obj.info;
+                }
+
+                if (obj.info.id.ToString() == com.target)
+                {
+                    victim = obj.info;
+                }
+            }
+
+            if (GameManager.GetInstance().myInfo.isHost)
+            {
+                CalcPointByKill(killer, victim);
+            }
+
             PhotonRPCHandler.GetInstance().PostRPC(tickermodel);
             //Destroy(gameObject);
         }
+    }
+
+    private void CalcPointByKill(PlayerInfo killer, PlayerInfo victim)
+    {
+        if (killer == null || victim == null)
+        {
+            return;
+        }
+
+        if (victim.isHuman)
+        {
+            killer.point += GameManager.KillHumanPoint;
+            victim.point += GameManager.HumanKilledPoint;
+        }
+        else
+        {
+            killer.point += GameManager.KillDevilPoint;
+            victim.point += GameManager.DevilKilledPoint;
+        }
+        killer.point = Mathf.Max(killer.point, 0);
+        victim.point = Mathf.Max(victim.point, 0);
+
+        GameManager.GetInstance().PostUpdateReadyRPC();
     }
 
     IEnumerator efect() {
