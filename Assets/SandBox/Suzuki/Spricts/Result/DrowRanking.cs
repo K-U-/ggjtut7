@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.Linq;
 public class DrowRanking : MonoBehaviour {
 
     [SerializeField]
@@ -42,6 +43,21 @@ public class DrowRanking : MonoBehaviour {
         mIndex = mValueList.Count - 1;
         StartCoroutine(DrowSeqence());
 	}
+
+    private void Update()
+    {
+        if (GameManager.GetInstance().myInfo.isHost &&
+        GameManager.GetInstance().ReadyStatusList.readyStatusList.Count (_ => !_.info.isSpector) >= 4)
+        {
+            //リザルト終了ダイアログを出す。
+            mPopUpUI.SetActive(true);
+        }
+        else
+        {
+            //リザルト終了ダイアログを出す。
+            mPopUpUI.SetActive(false);
+        }
+    }
 
     private void Shake()
     {
@@ -99,15 +115,6 @@ public class DrowRanking : MonoBehaviour {
 
     }
 
-    private void OutPutPowerStructure()
-    {
-
-        float percentage = 3 / 10;
-        float result = 150;
-        Debug.Log(result);
-        
-    }
-
     private IEnumerator Wait()
     {
         yield return new WaitForSeconds(waitTime);
@@ -115,12 +122,14 @@ public class DrowRanking : MonoBehaviour {
         {
             //TODO ゲームマネージャーから取得する。
             mValueList[mIndex].text = mPlayerInfo[mIndex].info.point.ToString();
+            mNameList[mIndex].text = mPlayerInfo[mIndex].info.name;
+            UnityEngine.Debug.Log(mPlayerInfo[mIndex].info.point.ToString());
             mIndex--;
             yield return new WaitForSeconds(waitTime);
 
         }
 
-        //リザルト終了ダイアログ
+        //リザルト終了ダイアログを出す。
         mPopUpUI.GetComponent<EasyTween>().OpenCloseObjectAnimation();
         
     }
