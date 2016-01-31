@@ -146,6 +146,9 @@ public class StageController : MonoBehaviour {
 			characterIndex++;
 			CharacterEnter (int.Parse (str [0]), int.Parse (str [1]));
 		}
+
+		// 全部終わったら、追従先を見つける.
+		Camera.main.GetComponent<CameraController> ().enabled = true;
 	}
 
 //	void ChangeCostume(string id, CharactorCos charactorCos) {
