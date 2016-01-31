@@ -25,7 +25,7 @@ public class StrikeInputUtility : MonoBehaviour {
 
 	Vector2[] mahoujinsPositions;
 
-	MahojinController mahojinController;
+	MahojinController[] mahojinControllers;
 
 	// Use this for initialization
 	void Start () {
@@ -35,16 +35,21 @@ public class StrikeInputUtility : MonoBehaviour {
 		for (int i = 0; i < stageController.mahojinsPos.Length; i++) {
 			mahoujinsPositions [i] = stageController.mahojinsPos[i];
 		}
+		mahojinControllers = new MahojinController[mahoujinsPositions.Length];
+		for (int i = 0; i < mahojinControllers.Length; i++) {
+			mahojinControllers [i] = GameObject.Find ("mahojin" + i).GetComponent<MahojinController>();
+		}
 	}
 
 	void Update() {
 		InputStrike ();
 
 		Vector2 myPosition = new Vector2 (this.transform.position.x, this.transform.position.z);
+		MahojinController mahojinController;
 		for (int i = 0; i < mahoujinsPositions.Length; i++) {
 			if (mahojinController == null) {
 				if (Vector2.Distance (myPosition, mahoujinsPositions [i]) < 1) {
-					mahojinController = GameObject.Find ("mahojin" + i).GetComponent<MahojinController> ();
+					mahojinController = mahojinControllers[i];
 				} else {
 					mahojinController = null;
 				}
