@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3c032de7072da3843859737d6b1aa288
-timeCreated: 1454198513
+timeCreated: 1454214667
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -47,6 +47,11 @@ TextureImporter:
     21300080: CH_Hair07
     21300082: CH_Hair08
     21300084: CH_Hair09
+    21300086: BG_prop1
+    21300088: BG_prop2
+    21300090: BG_prop3
+    21300092: BG_prop4
+    21300094: BG_prop5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -974,6 +979,102 @@ TextureImporter:
         - {x: 56, y: -34}
         - {x: 56, y: 35}
         - {x: 39, y: 64}
+    - name: BG_prop1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 17
+        width: 78
+        height: 95
+      alignment: 9
+      pivot: {x: 0.55147487, y: 0.045669656}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -36.015045, y: 90.661385}
+        - {x: -43.015045, y: 86.661385}
+        - {x: -43.015045, y: -1.3386154}
+        - {x: -36.015045, y: -4.3386154}
+        - {x: 33.984955, y: -4.3386154}
+        - {x: 34.984955, y: 1.6613846}
+        - {x: 34.984955, y: 47.661385}
+        - {x: 18.984955, y: 90.661385}
+    - name: BG_prop2
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 19
+        width: 95
+        height: 65
+      alignment: 9
+      pivot: {x: 0.51584876, y: 0.15254672}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9.0056305, y: 55.084465}
+        - {x: -49.00563, y: 40.084465}
+        - {x: -49.00563, y: -8.915537}
+        - {x: -44.00563, y: -9.915537}
+        - {x: 36.99437, y: -9.915537}
+        - {x: 45.99437, y: -3.9155369}
+        - {x: 45.99437, y: 46.084465}
+        - {x: 36.99437, y: 55.084465}
+    - name: BG_prop3
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 16
+        width: 111
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5090431, y: 0.047220644}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -47.503784, y: 87.6557}
+        - {x: -56.503784, y: 57.6557}
+        - {x: -56.503784, y: 23.6557}
+        - {x: -28.503784, y: -4.3442993}
+        - {x: 20.496216, y: -4.3442993}
+        - {x: 54.496216, y: 17.6557}
+        - {x: 54.496216, y: 87.6557}
+    - name: BG_prop4
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 8
+        width: 166
+        height: 119
+      alignment: 9
+      pivot: {x: 0.48587, y: 0.04664866}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -73.65442, y: 113.44881}
+        - {x: -80.65442, y: 105.44881}
+        - {x: -80.65442, y: -0.5511894}
+        - {x: -74.65442, y: -5.5511894}
+        - {x: 61.34558, y: -5.5511894}
+        - {x: 85.34558, y: -4.5511894}
+        - {x: 85.34558, y: 91.44881}
+        - {x: 65.34558, y: 113.44881}
+    - name: BG_prop5
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 16
+        width: 179
+        height: 232
+      alignment: 9
+      pivot: {x: 0.5524159, y: 0.029868316}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20.117554, y: 225.07056}
+        - {x: -20.882446, y: 225.07056}
+        - {x: -39.882446, y: 219.07056}
+        - {x: -98.88245, y: 176.07056}
+        - {x: -98.88245, y: 56.07055}
+        - {x: -47.882446, y: -6.929451}
+        - {x: 14.117554, y: -6.929451}
+        - {x: 29.117554, y: -1.929451}
+        - {x: 80.11755, y: 61.07055}
+        - {x: 80.11755, y: 206.07056}
     outline: []
   spritePackingTag: 
   userData: 
