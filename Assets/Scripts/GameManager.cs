@@ -45,6 +45,12 @@ public class GameManager : Photon.MonoBehaviour {
 
     private Dictionary<string, Character_Controller> characterDictionary = new Dictionary<string, Character_Controller>();
 
+    public void InitializeCharacterController(string key, Character_Controller val)
+    {
+        characterDictionary.Add(key, val);
+        Debug.Log(characterDictionary.Count);
+    }
+
     void Awake()
     {
         readyStatusList = new PlayerReadyStatusList();
