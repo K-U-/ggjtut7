@@ -30,6 +30,7 @@ public class Character_Controller : MonoBehaviour{
     public GameObject Effect;
     public Animator anim;
     public float watetime;
+    public TextMesh textMesh;
 
     void Awake()
     {
@@ -42,6 +43,25 @@ public class Character_Controller : MonoBehaviour{
         else
         {
             PhotonRPCHandler.startSyncEvent += DummySyncEvent;
+        }
+        if (GameManager.GetInstance().myInfo.isSpector)
+        {
+            foreach (var val in GameManager.GetInstance().ReadyStatusList.readyStatusList)
+            {
+                if (val.info.id.ToString() == gameObject.name)
+                {
+                    textMesh.text = val.info.name;
+                    if (!val.info.isHuman)
+                    {
+                        textMesh.color = Color.red;
+                    }
+                }
+            }
+            textMesh.gameObject.SetActive(false);
+        }
+        else
+        {
+            textMesh.gameObject.SetActive(false);
         }
         stage = GameObject.Find("Stage").GetComponent<StageController>(); ;
     }
@@ -125,6 +145,12 @@ public class Character_Controller : MonoBehaviour{
         {
             Instantiate(Effect, transform.position, transform.rotation);
             StartCoroutine(efect());
+            PhotonRPCModel tickermodel = new PhotonRPCModel();
+            tickermodel.senderId = model.senderId;
+            tickermodel.command = PhotonRPCCommand.ActionTickerEvent;
+            KillCommand com = JsonUtility.FromJson<KillCommand>(model.message);
+            tickermodel.message = string.Format("{0}が{1}を KILL!", model.senderId, com.target);
+            PhotonRPCHandler.GetInstance().PostRPC(tickermodel);
             //Destroy(gameObject);
         }
     }

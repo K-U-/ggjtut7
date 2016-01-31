@@ -118,6 +118,13 @@ public class GameManager : Photon.MonoBehaviour {
     {
         PlayerReadyStatusList list = JsonUtility.FromJson<PlayerReadyStatusList>(rpcModel.message);
         this.readyStatusList = list;
+        foreach (var prof in list.readyStatusList)
+        {
+            if (prof.info.id == GameManager.GetInstance().myInfo.id)
+            {
+                GameManager.GetInstance().myInfo.isHuman = prof.info.isHuman;
+            }
+        }
     }
 
     public void LoadScene(string sceneName)

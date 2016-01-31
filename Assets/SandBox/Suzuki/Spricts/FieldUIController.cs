@@ -3,12 +3,24 @@ using System.Collections;
 
 public class FieldUIController : MonoBehaviour {
 
+    public GameObject akumaButton;
+    public GameObject killButton;
     public GameObject tickerObject;
     public GameObject[] controller;
     public Transform tickerParent;
 
     void Awake()
     {
+        if (GameManager.GetInstance().myInfo.isHuman)
+        {
+            akumaButton.SetActive(false);
+            killButton.SetActive(true);
+        }
+        else
+        {
+            akumaButton.SetActive(true);
+            killButton.SetActive(false);
+        }
         if (GameManager.GetInstance().myInfo.isSpector)
         {
             foreach (var obj in controller)

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -11,9 +11,10 @@ public enum PhotonRPCCommand
     StartSync,
     SyncPosition,
     Departure,
-	Costume,
-    ActionTickerEvent
-}
+    ActionTickerEvent,
+    StartBattleEvent,
+    SyncGameRemainTimeEvent,
+    Costume}
 
 public class PhotonRPCModel : ModelBase
 {
@@ -36,6 +37,8 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
     public static OnRecieveEvent departureEvent;
 	public static OnRecieveEvent costumeEvent;
     public static OnRecieveEvent actionTickerEvent;
+    public static OnRecieveEvent startBattleEvent;
+    public static OnRecieveEvent syncGameRemainTimeEvent;
 
     public static PhotonRPCHandler GetInstance()
     {
@@ -55,11 +58,11 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
         {PhotonRPCCommand.StartSync,OnStartSync},
         {PhotonRPCCommand.SyncPosition,OnSyncPosition},
         {PhotonRPCCommand.Departure,OnDepartureEvent},
-		{PhotonRPCCommand.Costume, OnCostumeEvent},
-        {PhotonRPCCommand.Departure,OnDepartureEvent},
-        {PhotonRPCCommand.ActionTickerEvent,OnActionTickerEvent}
+        {PhotonRPCCommand.StartBattleEvent,OnStartBattleEvent},
+        {PhotonRPCCommand.SyncGameRemainTimeEvent,OnSyncGameRemainTimeEvent},
+        {PhotonRPCCommand.ActionTickerEvent,OnActionTickerEvent},
+        {PhotonRPCCommand.Costume,OnCostumeEvent}
     };
-
     private static void OnMoveEvent(PhotonRPCModel model)
     {
         moveEvent(model);
@@ -68,12 +71,6 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
     private static void OnKillEvent(PhotonRPCModel model)
     {
         killEvent(model);
-        PhotonRPCModel tickermodel = new PhotonRPCModel();
-        tickermodel.senderId = model.senderId;
-        tickermodel.command = PhotonRPCCommand.ActionTickerEvent;
-        KillCommand com = JsonUtility.FromJson<KillCommand>(model.message);
-        tickermodel.message = string.Format("{0}が{1}を KILL!", model.senderId, com.target);
-        sharedInstance.PostRPC(tickermodel);
     }
 
     private static void OnJoinEvent(PhotonRPCModel model)
@@ -115,6 +112,14 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
         if(actionTickerEvent != null){
             actionTickerEvent(model);
         }
+    }
+
+    private static void OnStartBattleEvent(PhotonRPCModel model){
+        startBattleEvent(model);
+    }
+
+    private static void OnSyncGameRemainTimeEvent(PhotonRPCModel model){
+        syncGameRemainTimeEvent(model);
     }
 
 
