@@ -6,11 +6,11 @@ public class MahojinController : MonoBehaviour {
 	// 魔法陣は9マス分で一人しか入れない.
 
 	// 魔法陣の番号
-	private int id{ get{return id;} }
+	public int id;
 
 	// 魔法陣自身の居場所.
-	private int x{ get{ return x;} }
-	private int y{ get{ return y;} }
+	public int x;
+	public int y;
 
 	// キャラクターが乗っているかどうか.
 	public bool onCharacter;
@@ -18,7 +18,7 @@ public class MahojinController : MonoBehaviour {
 	private int  controlGauge;
 	// ゲージのマックス.
 	[SerializeField]
-	int maxGauge = 30;
+	int maxGauge = 5;
 	// 魔法陣が光る為のスクリプト.
 	private MagicCircleLight mCL;
 	// 音を鳴らすかどうかを決めるフラグ.
@@ -35,6 +35,11 @@ public class MahojinController : MonoBehaviour {
 
 		// ゲーム開始時には,音は鳴らせる状態.
 		soundPlayed = false;
+
+		this.x = (int)transform.position.x;
+		this.y = (int)transform.position.z;
+
+		this.id = int.Parse(name.Substring (name.Length-1));
 
 		// 確認用.
 		// GetComponent<MeshRenderer>().enabled = false;
@@ -57,7 +62,6 @@ public class MahojinController : MonoBehaviour {
 				// 音でお知らせ.
 				AudioController.PlaySE ("Mahojin1");
 				// ポイントを加算.
-
 				soundPlayed = true;
 			}
 		}
