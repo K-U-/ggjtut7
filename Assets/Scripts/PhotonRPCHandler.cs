@@ -60,7 +60,8 @@ public class PhotonRPCHandler : Photon.MonoBehaviour{
         {PhotonRPCCommand.Departure,OnDepartureEvent},
         {PhotonRPCCommand.StartBattleEvent,OnStartBattleEvent},
         {PhotonRPCCommand.SyncGameRemainTimeEvent,OnSyncGameRemainTimeEvent},
-        {PhotonRPCCommand.ActionTickerEvent,OnActionTickerEvent}
+        {PhotonRPCCommand.ActionTickerEvent,OnActionTickerEvent},
+        {PhotonRPCCommand.Costume,OnCostumeEvent}
     };
     private static void OnMoveEvent(PhotonRPCModel model)
     {
