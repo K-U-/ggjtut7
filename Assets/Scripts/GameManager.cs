@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -16,6 +17,7 @@ public class GameManager : Photon.MonoBehaviour {
 
     public int roundCount = 3;
     public string roomName;
+    public Image mask;
     private PlayerReadyStatusList readyStatusList;
     public PlayerReadyStatusList ReadyStatusList {
         get{return readyStatusList;}
@@ -141,6 +143,15 @@ public class GameManager : Photon.MonoBehaviour {
         }
     }
 
+    public void PostUpdateReadyRPC()
+    {
+        PhotonRPCModel updateModel = new PhotonRPCModel();
+        updateModel.command = PhotonRPCCommand.UpdateReadyList;
+        updateModel.senderId = myInfo.id.ToString();
+        updateModel.message = JsonUtility.ToJson(ReadyStatusList);
+        PhotonRPCHandler.GetInstance().PostRPC(updateModel);
+    }
+
     /// <summary>
     /// 時間切れで次に遷移するかもしれない
     /// </summary>
@@ -160,9 +171,59 @@ public class GameManager : Photon.MonoBehaviour {
         }
     }
 
+    public void MaskTo(float alpha , float time,System.Action completeAction = null)
+    {
+        mask.gameObject.SetActive(true);
+        this.completeAction = completeAction;
+        iTween.ValueTo(gameObject, iTween.Hash(
+            "from", mask.color.a,
+            "to", alpha,
+            "time", time,
+            "easetime", iTween.EaseType.easeInCirc,
+            "onupdate","UpdateValue",
+            "oncomplete","OnCompleteAction"
+            ));
+    }
+
+    public void MaskOff( float time,System.Action completeAction = null)
+    {
+        mask.gameObject.SetActive(true);
+        this.completeAction = completeAction;
+        iTween.ValueTo(gameObject, iTween.Hash(
+            "from", mask.color.a,
+            "to", 0,
+            "time", time,
+            "easetime", iTween.EaseType.easeInCirc,
+            "onupdate", "UpdateValue",
+            "oncomplete", "OnCompleteAction"
+            ));
+    }
+
+    void UpdateValue(float val)
+    {
+        mask.color = new Color(0, 0, 0, val);
+        mask.SetAllDirty();
+    }
+
+    private System.Action completeAction;
+    void OnCompleteAction()
+    {
+        mask.gameObject.SetActive(mask.color.a > 0);
+        if(completeAction != null){
+            completeAction();
+        }
+
+        completeAction = null;
+    }
+
     public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        this.MaskTo(1, 0.5f, delegate
+        {
+            SceneManager.LoadScene(sceneName);
+            this.MaskOff(0.5f);
+        });
+        
     }
 
     public void PostPlayerStatus()
