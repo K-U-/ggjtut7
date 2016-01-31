@@ -30,7 +30,6 @@ public class Character_Controller : MonoBehaviour{
     public GameObject Effect;
     public Animator anim;
     public float watetime;
-    public TextMesh textMesh;
 
     void Awake()
     {
@@ -43,25 +42,6 @@ public class Character_Controller : MonoBehaviour{
         else
         {
             PhotonRPCHandler.startSyncEvent += DummySyncEvent;
-        }
-        if (GameManager.GetInstance().myInfo.isSpector)
-        {
-            foreach (var val in GameManager.GetInstance().ReadyStatusList.readyStatusList)
-            {
-                if (val.info.id.ToString() == gameObject.name)
-                {
-                    textMesh.text = val.info.name;
-                    if (!val.info.isHuman)
-                    {
-                        textMesh.color = Color.red;
-                    }
-                }
-            }
-            textMesh.gameObject.SetActive(false);
-        }
-        else
-        {
-            textMesh.gameObject.SetActive(false);
         }
         stage = GameObject.Find("Stage").GetComponent<StageController>(); ;
     }
@@ -175,6 +155,7 @@ public class Character_Controller : MonoBehaviour{
 
     public void RepositionPlayer(SyncCommand command)
     {
-        //TODO:内部実装は任せます。
+        stage.CharacterExit((int)this.transform.position.x, (int)this.transform.position.z);
+        this.transform.position = new Vector3((float)command.x, 1f, (float)command.z);
     }
 }
